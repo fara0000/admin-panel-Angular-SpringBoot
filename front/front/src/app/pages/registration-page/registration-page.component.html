@@ -8,7 +8,7 @@
   <div class="registration-page__login-wrapper">
     <div class="registration-page__login-wrapper_input-wrapper">
           <span class="p-float-label">
-            <input class="registration-page__input" id="float-input-username" type="text" pInputText type="text" />
+            <input class="registration-page__input" [ngModel]="login" id="float-input-username" type="text" pInputText type="text" />
             <label for="float-input" [ngStyle]="{fontSize: 'larger'}">Username</label>
           </span>
     </div>
@@ -16,7 +16,7 @@
   <div class="registration-page__login-wrapper">
     <div class="registration-page__login-wrapper_input-wrapper" [ngStyle]="{height: '70px'}">
           <span class="p-float-label">
-            <input class="registration-page__input" id="float-input-password" type="password" pInputText type="password" />
+            <input class="registration-page__input" [ngModel]="password" id="float-input-password" type="password" pInputText type="password" />
             <label for="float-input" [ngStyle]="{fontSize: 'larger'}">Password</label>
           </span>
     </div>
@@ -26,7 +26,9 @@
       <a class="registration-page__button-link" routerLink="/login">already registered? Log In</a>
     </div>
     <div>
-      <button pButton type="button" label="Sign up" class="registration-page__button"></button>
+      <button pButton type="button" label="Sign up" class="registration-page__button"
+              (click)="addUser({login: login, password: password})">
+      </button>
     </div>
   </div>
 </div>
