@@ -11,7 +11,7 @@ export class RegistrationService {
   constructor(private _http: Http) { }
 
   public addNewUser(obj: any): any {
-    return this._http.post('localhost:3000/addUser', obj).pipe(
+    return this._http.post('https://jsonplaceholder.typicode.com/posts', obj).pipe(
       map(res => res.json(),
   (err: any) => {
             this.handleError(err);

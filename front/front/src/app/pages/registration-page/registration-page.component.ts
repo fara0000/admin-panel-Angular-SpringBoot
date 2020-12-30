@@ -8,10 +8,17 @@ import { RegistrationService } from './registration-page-service/registration.se
   styleUrls: ['./registration-page.component.less']
 })
 export class RegistrationPageComponent implements OnInit {
+  login: any;
+  password: any;
 
   constructor(private _service: RegistrationService) { }
 
   ngOnInit(): void {
+  }
+
+  public register(login: string, password: string): any {
+    this.sendNewUser({login, password});
+    this.cleanInputValue();
   }
 
   public sendNewUser(obj: any): any {
@@ -19,5 +26,10 @@ export class RegistrationPageComponent implements OnInit {
       (res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     );
+  }
+
+  public cleanInputValue(): void {
+    this.login = '';
+    this.password = '';
   }
 }
