@@ -23,18 +23,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb58756a-ffdf-460e-b10f-08453196d9cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_1_6_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/lala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/app.component.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/login-page/login-page-service/login.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/login-page/login-page-service/login.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/login-page/login-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/login-page/login-page.component.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/login-page/login-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/login-page/login-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/main-page/main-page-service/main.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/main-page/main-page-service/main.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/main-page/main-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/main-page/main-page.component.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/main-page/main-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/main-page/main-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/registration-page/registration-page-service/registration.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/registration-page/registration-page-service/registration.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/registration-page/registration-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/registration-page/registration-page.component.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/registration-page/registration-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/app/pages/registration-page/registration-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/styles.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/tslint.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,21 +121,30 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\hp\Desktop\WEB\Lab4_WEB\front\front\node_modules\typescript\lib" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\front\front\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\backend\src\main\resources\static" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.application.entities" />
     </key>
   </component>
   <component name="RunManager" selected="npm.build">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,7 +192,8 @@
       <option name="presentableId" value="Default" />
       <updated>1609265075179</updated>
       <workItem from="1609265076378" duration="17408000" />
-      <workItem from="1610528324127" duration="6565000" />
+      <workItem from="1610528324127" duration="6666000" />
+      <workItem from="1610536461050" duration="1197000" />
     </task>
     <servers />
   </component>
@@ -168,6 +217,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="582" y="255" key="#Assign_Data_Sources/0.0.1366.728@0.0.1366.728" timestamp="1610484931930" />
+    <state x="163" y="0" key="#Project_Structure" timestamp="1610536704827">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1610536704827" />
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1610491059690">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -176,10 +229,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1610484689620" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1610536299535">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1610536791244">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610536299535" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610536791244" />
     <state width="1323" height="199" key="GridCell.Tab.0.bottom" timestamp="1610394012071">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -220,6 +273,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1610535559692" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1610536943046">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1610536943046" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1610534538178">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
