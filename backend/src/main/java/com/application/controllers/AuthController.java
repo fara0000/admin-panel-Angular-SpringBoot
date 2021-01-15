@@ -19,19 +19,20 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @PostMapping('/register')
+    @PostMapping("registration/register")
     public ResponseEntity<String> register(@RequestBody @Valid User user, BindingResult result) {
         try {
-            log.debug("POST request to register user {}", user);
+//            log.debug("POST request to register user {}", user);
+            System.err.println("Tuk Tuk");
             if (result.hasErrors()) {
-                log.error("Validation Error");
+//                log.error("Validation Error");
                 return new ResponseEntity<>("Validation Error", HttpStatus.BAD_REQUEST);
             }
             boolean isSaved = userService.saveUser(user);
             return isSaved ? new ResponseEntity<>("User registered successfully!", HttpStatus.OK) :
                     new ResponseEntity<>("User has already registered!", HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            log.error("Unexpected Error {}", e.getMessage());
+//            log.error("Unexpected Error {}", e.getMessage());
             return new ResponseEntity<>("Unexpected Error", HttpStatus.BAD_REQUEST);
         }
     }

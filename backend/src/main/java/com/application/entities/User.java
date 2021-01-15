@@ -1,6 +1,5 @@
 package com.application.entities;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,8 +11,9 @@ import java.util.Collection;
 @Table(name="users")
 public class User implements UserDetails {
     @Id
-    @Column(name = "id", unique = true)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(nullable = false, unique = true, length = 25)
     private String username;
