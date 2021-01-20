@@ -15,6 +15,10 @@ export class MainPageComponent implements OnInit {
     this.drawRectable(this.parameter);
   }
 
+  public onSubmit(data: object): void {
+    console.log(data)
+  }
+
   // tslint:disable-next-line:typedef
   drawRectable(parameter: any) {
     const CANVAS_WIDTH = 400;
