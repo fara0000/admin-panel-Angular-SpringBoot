@@ -1,4 +1,6 @@
+import { GetPointsService } from './main-page-service/get-points.service';
 import { Component, OnInit } from '@angular/core';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-main-page',
@@ -6,17 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.less']
 })
 export class MainPageComponent implements OnInit {
+  private tablePoints: any;
   public parameter: number;
-  constructor() {
+
+  constructor(private _service: GetPointsService) {
     this.parameter = 4;
   }
 
   ngOnInit(): void {
     this.drawRectable(this.parameter);
+    this.getUserPoints();
+  }
+
+  public getUserPoints() {
+    this._service.getPoints().subscribe((res: any) => console.log(res),
+      (err: HttpErrorResponse) => console.log(err),
+    )
   }
 
   public onSubmit(data: object): void {
     console.log(data)
+  }
+
+  public getTablePoints(): any {
+    return this.tablePoints;
   }
 
   // tslint:disable-next-line:typedef
