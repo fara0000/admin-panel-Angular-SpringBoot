@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Data
@@ -11,14 +13,18 @@ import java.util.Collection;
 @Table(name="users")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 25)
+    @Size(min = 4, max = 25)
+    @Column(nullable = false, unique = true)
+    @NotEmpty
     private String username;
 
-    @Column(nullable = false, length = 60)
+    @Size(min = 4)
+    @Column(nullable = false)
+    @NotEmpty
     private String password;
 
     @Override

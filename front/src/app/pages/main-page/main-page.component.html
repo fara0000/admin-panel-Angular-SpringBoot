@@ -1,43 +1,51 @@
 <div class="main-page__main-wrapper">
-  <div class="main-page__canvas-container">
-    <canvas width="400px" height="400px" id="canvas"></canvas>
-  </div>
-  <div class="main-page__form-container">
-    <div class="p-panel-titlebar">
-      <span class="p-panel-title">add new query</span>
+  <header class="main-page__header">
+    <div class="header__logo" [ngStyle]="{cursor: 'pointer'}">
+      Lab4_Web
     </div>
-    <div class="p-field p-col-12 p-md-6">
-      X:
-      <p-inputNumber [ngStyle]="{width: '90%'}" mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5"></p-inputNumber>
+    <div class="header__sign-out-button">
+      <button pButton pRipple type="button" label="sign out" class="p-button-raised p-button-text p-button-plain" routerLink="/login"></button>
     </div>
-    <div class="p-field p-col-12 p-md-6">
-      Y:
-      <input [ngStyle]="{width: '90%'}" id="y" type="text" pInputText>
-    </div>
-    <div class="p-field p-col-12 p-md-6">
-      Z:
-      <p-inputNumber mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
-    </div>
-    <div class="main-page__button-container" [ngStyle]="{display: 'flex', justifyContent: 'center'}">
-      <button pButton type="button" label="Send" [ngStyle]="{width: '250px'}"></button>
-    </div>
-  </div>
-  <div class="main-page__table">
-    <div class="main-page__table-header">
-      <div class="main-page__table-header-element">
-        <span>X</span>
+  </header>
+  <div class="main-page__body">
+      <div class="main-page__canvas-container">
+        <canvas width="400px" height="400px" id="canvas"></canvas>
       </div>
-      <div class="main-page__table-header-element">
-        <span>Y</span>
+      <form class="main-page__form-container">
+        <div class="p-panel-titlebar">
+          <span class="p-panel-title">add new query</span>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          X:
+          <p-inputNumber [ngStyle]="{width: '90%'}" mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5"></p-inputNumber>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          Y:
+          <input [ngStyle]="{width: '90%'}" id="y" type="text" pInputText>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          Z:
+          <p-inputNumber mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
+        </div>
+        <div class="main-page__button-container" [ngStyle]="{display: 'flex', justifyContent: 'center'}">
+          <button pButton type="button" label="Send" [ngStyle]="{width: '250px'}"></button>
+        </div>
+      </form>
+      <div class="main-page__table">
+        <div class="main-page__table-header">
+          <div class="main-page__table-header-element">
+            <span>X</span>
+          </div>
+          <div class="main-page__table-header-element">
+            <span>Y</span>
+          </div>
+          <div class="main-page__table-header-element">
+            <span>Z</span>
+          </div>
+          <div class="main-page__table-header-element">
+            <span>Result</span>
+          </div>
+        </div>
       </div>
-      <div class="main-page__table-header-element">
-        <span>Z</span>
-      </div>
-      <div class="main-page__table-header-element">
-        <span>Result</span>
-      </div>
-    </div>
   </div>
 </div>
-
-

@@ -23,90 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb58756a-ffdf-460e-b10f-08453196d9cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/security/CorsProtection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/security/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/services/CorsFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/hue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/main.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/password-meter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/polyfills.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/polyfills.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/primeicons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/primeicons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/primeicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/primeicons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/runtime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/runtime.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/styles.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/vendor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/vendor.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/e2e/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/app.component.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page-service/login.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page-service/login.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page-service/main.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page-service/main.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page-service/registration.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page-service/registration.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page.component.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/styles.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/services/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/services/CorsFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/static/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/static/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.less" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.less" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,17 +103,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="lab4" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.application.Application" />
@@ -258,6 +173,8 @@
       <workItem from="1610552044368" duration="45000" />
       <workItem from="1610552107696" duration="62000" />
       <workItem from="1610552962141" duration="13617000" />
+      <workItem from="1611048723588" duration="15570000" />
+      <workItem from="1611144985463" duration="807000" />
     </task>
     <servers />
   </component>
@@ -280,9 +197,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="582" y="255" key="#Assign_Data_Sources" timestamp="1610484931930">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="2184" y="364" key="#Assign_Data_Sources" timestamp="1611059760895">
+      <screen x="1366" y="0" width="1920" height="1040" />
     </state>
+    <state x="2184" y="364" key="#Assign_Data_Sources/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611059760895" />
     <state x="582" y="255" key="#Assign_Data_Sources/0.0.1366.728@0.0.1366.728" timestamp="1610484931930" />
     <state x="163" y="0" key="#Project_Structure" timestamp="1610536704827">
       <screen x="0" y="0" width="1366" height="728" />
@@ -304,42 +222,58 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610552112915" />
-    <state width="1323" height="243" key="GridCell.Tab.0.bottom" timestamp="1610710315481">
+    <state width="1323" height="212" key="GridCell.Tab.0.bottom" timestamp="1611094582890">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610710315481" />
+    <state width="1323" height="282" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096884" />
+    <state width="1877" height="408" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443525" />
+    <state width="1323" height="212" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1611094582890" />
     <state width="1877" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1609336600350" />
-    <state width="1323" height="243" key="GridCell.Tab.0.center" timestamp="1610710315480">
+    <state width="1323" height="212" key="GridCell.Tab.0.center" timestamp="1611094582890">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610710315480" />
+    <state width="1323" height="282" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096884" />
+    <state width="1877" height="408" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443524" />
+    <state width="1323" height="212" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1611094582890" />
     <state width="1877" height="289" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1609336600349" />
-    <state width="1323" height="243" key="GridCell.Tab.0.left" timestamp="1610710315480">
+    <state width="1323" height="212" key="GridCell.Tab.0.left" timestamp="1611094582890">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610710315480" />
+    <state width="1323" height="282" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096883" />
+    <state width="1877" height="408" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443524" />
+    <state width="1323" height="212" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1611094582890" />
     <state width="1877" height="289" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1609336600349" />
-    <state width="1323" height="243" key="GridCell.Tab.0.right" timestamp="1610710315481">
+    <state width="1323" height="212" key="GridCell.Tab.0.right" timestamp="1611094582890">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610710315481" />
+    <state width="1323" height="282" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096884" />
+    <state width="1877" height="408" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443525" />
+    <state width="1323" height="212" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1611094582890" />
     <state width="1877" height="289" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.4.1920.1040@-1920.4.1920.1040" timestamp="1609336600350" />
-    <state width="1323" height="243" key="GridCell.Tab.1.bottom" timestamp="1610710315482">
+    <state width="1323" height="212" key="GridCell.Tab.1.bottom" timestamp="1611094582892">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610710315482" />
-    <state width="1323" height="243" key="GridCell.Tab.1.center" timestamp="1610710315481">
+    <state width="1323" height="282" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096885" />
+    <state width="1877" height="408" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443526" />
+    <state width="1323" height="212" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1611094582892" />
+    <state width="1323" height="212" key="GridCell.Tab.1.center" timestamp="1611094582891">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1610710315481" />
-    <state width="1323" height="243" key="GridCell.Tab.1.left" timestamp="1610710315481">
+    <state width="1323" height="282" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096884" />
+    <state width="1877" height="408" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443525" />
+    <state width="1323" height="212" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1611094582891" />
+    <state width="1323" height="212" key="GridCell.Tab.1.left" timestamp="1611094582891">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1610710315481" />
-    <state width="1323" height="243" key="GridCell.Tab.1.right" timestamp="1610710315481">
+    <state width="1323" height="282" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096884" />
+    <state width="1877" height="408" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443525" />
+    <state width="1323" height="212" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1611094582891" />
+    <state width="1323" height="212" key="GridCell.Tab.1.right" timestamp="1611094582891">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1610710315481" />
+    <state width="1323" height="282" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611065096885" />
+    <state width="1877" height="408" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611071443525" />
+    <state width="1323" height="212" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1611094582891" />
     <state width="209" height="471" key="HiddenNamespacesPopup" timestamp="1610653793536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -352,10 +286,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1610552114767" />
-    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1610708999332">
+    <state x="2177" y="359" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1611063925239">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2177" y="359" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611063925239" />
+    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1610708999332" />
+    <state x="541" y="32" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1611064726826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1610708999332" />
+    <state x="541" y="32" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611064726826" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1610707362932">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
