@@ -35,7 +35,11 @@ public class PointController {
                 if (x * x + y * y <= r * r / 4)income = "true";
             }
         }
-        pointRepository.save(new Point(x, y, r, income));
+        boolean copy = true;
+        for (Point point: pointRepository.findAll()) {
+            if (point.getX()==x && point.getY()==y && point.getR() ==r) copy = false;
+        }
+        if (copy) pointRepository.save(new Point(x, y, r, income));
         return pointRepository.findAll();
     }
 
@@ -43,4 +47,5 @@ public class PointController {
     public List<Point> test (){
         return pointRepository.findAll();
     }
+
 }
