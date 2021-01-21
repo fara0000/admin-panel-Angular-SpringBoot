@@ -24,6 +24,10 @@ public class PointController {
         double x = Double.parseDouble(request.get("x"));
         double y = Double.parseDouble(request.get("y"));
         double r = Double.parseDouble(request.get("r"));
+        boolean correct = true;
+        if (Math.abs(x) > 2) {System.out.println("Wrong value of X"); correct = false;}
+        if (Math.abs(x) > 3) {System.out.println("Wrong value of Y"); correct = false;}
+        if (Math.abs(r) > 2) {System.out.println("Wrong value of R"); correct = false;}
         String income = "false";
         if (y > 0){
             if ((y <= 2 * x + r) && (x <= 0)) income = "true";
@@ -35,11 +39,11 @@ public class PointController {
                 if (x * x + y * y <= r * r / 4)income = "true";
             }
         }
-        boolean copy = true;
+
         for (Point point: pointRepository.findAll()) {
-            if (point.getX()==x && point.getY()==y && point.getR() ==r) copy = false;
+            if (point.getX()==x && point.getY()==y && point.getR() ==r) correct = false;
         }
-        if (copy) pointRepository.save(new Point(x, y, r, income));
+        if (correct) pointRepository.save(new Point(x, y, r, income));
         return pointRepository.findAll();
     }
 
