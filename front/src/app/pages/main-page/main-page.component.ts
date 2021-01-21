@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-main-page',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   public parameter: number;
+  rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
+
   constructor() {
-    this.parameter = 4;
+    this.parameter = 2;
   }
 
   ngOnInit(): void {
@@ -17,7 +20,7 @@ export class MainPageComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   draw(parameter: any = 0) {
-    // parameter =
+    parameter *= 2;
     const CANVAS_WIDTH = 400;
     const CANVAS_HEIGHT = 400;
     const canvas = document.getElementById('canvas');
@@ -75,20 +78,20 @@ export class MainPageComponent implements OnInit {
       ctx.fillText("X", 385, 188);
       ctx.fillText("Y", 208, 18);
       ctx.fillText("0", 202, 198);
-      if (Math.abs(parameter) >= 1){
-        ctx.fillText("1", 240, 198);
-        ctx.fillText("1", 202, 158);
-        ctx.fillText("-1", 162, 198);
-        ctx.fillText("-1", 202, 236);
+      if (Math.abs(parameter) >= 4){
+        ctx.fillText("2", 362, 198);
+        ctx.fillText("2", 202, 38);
+        ctx.fillText("-2", 42, 198);
+        ctx.fillText("-2", 202, 356);
       }
       if (Math.abs(parameter) >= 2){
-        ctx.fillText("2", 282, 198);
-        ctx.fillText("2", 202, 116);
-        ctx.fillText("-2", 122, 198);
-        ctx.fillText("-2", 202, 276);
+        ctx.fillText("1", 282, 198);
+        ctx.fillText("1", 202, 116);
+        ctx.fillText("-1", 122, 198);
+        ctx.fillText("-1", 202, 276);
       }
 
-      //TODO: add drawing points through get request to /main/getPoints
+      //TODO: add drawing points through get request to /main/getPoints but other multiplayer
 
       // for (let r = 1, n = table.rows.length; r < n; r++) { //dots
       //   let x = table.rows[r].cells[0].innerHTML;
