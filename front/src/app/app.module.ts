@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CheckPointService} from './pages/main-page/main-page-service/check-point.service';
 import { LoginService } from './pages/login-page/login-page-service/login.service';
 import { AppComponent } from './app.component';
@@ -17,15 +17,16 @@ import {GetPointsService} from "./pages/main-page/main-page-service/get-points.s
     AppComponent,
     routingComponents,
   ],
-  imports: [
-    HttpModule,
-    FormsModule,
-    ButtonModule,
-    BrowserModule,
-    InputTextModule,
-    AppRoutingModule,
-    InputNumberModule,
-  ],
+    imports: [
+        HttpModule,
+        FormsModule,
+        ButtonModule,
+        BrowserModule,
+        InputTextModule,
+        AppRoutingModule,
+        InputNumberModule,
+        ReactiveFormsModule,
+    ],
   providers: [
     LoginService,
     GetPointsService,
