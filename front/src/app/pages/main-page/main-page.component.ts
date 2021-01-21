@@ -1,6 +1,7 @@
 import { GetPointsService } from './main-page-service/get-points.service';
 import { Component, OnInit } from '@angular/core';
-import {HttpErrorResponse} from "@angular/common/http";
+import { HttpErrorResponse } from '@angular/common/http';
+import { CheckPointService } from './main-page-service/check-point.service';
 
 @Component({
   selector: 'app-main-page',
@@ -8,10 +9,10 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./main-page.component.less']
 })
 export class MainPageComponent implements OnInit {
-  private tablePoints: any;
   public parameter: number;
+  private tablePoints: any;
 
-  constructor(private _service: GetPointsService) {
+  constructor(private _getPointService: GetPointsService, private _checkPointService: CheckPointService) {
     this.parameter = 4;
   }
 
@@ -21,13 +22,17 @@ export class MainPageComponent implements OnInit {
   }
 
   public getUserPoints() {
-    this._service.getPoints().subscribe((res: any) => console.log(res),
+    this._getPointService.getPoints().subscribe((res: any) => this.tablePoints = res,
       (err: HttpErrorResponse) => console.log(err),
     )
+    console.log(this.tablePoints, 'tbpoint');
   }
 
-  public onSubmit(data: object): void {
-    console.log(data)
+  public checkPoint(data: object): void {
+    this._checkPointService.checkPoints(data).subscribe((res: any) => res,
+      (err: HttpErrorResponse) => console.log(err),
+    )
+    this.getUserPoints();
   }
 
   public getTablePoints(): any {

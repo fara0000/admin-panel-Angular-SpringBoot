@@ -11,7 +11,7 @@
       <div class="main-page__canvas-container">
         <canvas width="400px" height="400px" id="canvas"></canvas>
       </div>
-      <form #pointForm="ngForm" class="main-page__form-container" (ngSubmit)="onSubmit(pointForm.value)">
+      <form #pointForm="ngForm" class="main-page__form-container" (ngSubmit)="checkPoint(pointForm.value)">
         <div class="p-panel-titlebar">
           <span class="p-panel-title">add new query</span>
         </div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { MainService } from './pages/main-page/main-page-service/main.service';
+import {CheckPointService} from './pages/main-page/main-page-service/check-point.service';
 import { LoginService } from './pages/login-page/login-page-service/login.service';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
@@ -10,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { RegistrationService } from './pages/registration-page/registration-page-service/registration.service';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import {GetPointsService} from "./pages/main-page/main-page-service/get-points.service";
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     InputNumberModule,
   ],
   providers: [
-    MainService,
     LoginService,
+    GetPointsService,
+    CheckPointService,
     RegistrationService,
   ],
   bootstrap: [AppComponent]
