@@ -157,7 +157,7 @@ class RegistrationService {
         this._http = _http;
     }
     addNewUser(obj) {
-        return this._http.post('http://localhost:8080/registration/register', obj).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res.json(), (err) => {
+        return this._http.post('http://localhost:8080/register', obj).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res.json(), (err) => {
             this.handleError(err);
         }));
     }
@@ -875,7 +875,7 @@ class GetPointsService {
         this._http = _http;
     }
     getPoints() {
-        return this._http.get('http://localhost:8080/main/getPoints').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res.json(), (err) => this.handleError(err)));
+        return this._http.get('http://localhost:8080/getPoints').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res.json(), (err) => this.handleError(err)));
     }
     ;
     handleError(err) {

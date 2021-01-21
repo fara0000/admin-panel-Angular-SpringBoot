@@ -32,14 +32,14 @@ public class PointController {
                 if ((x <= r/2) && (y >= -r)) income = "true";
             }
             if (x < 0){
-                if (x * x + y * y <= r * r / 4)income = "true";`
+                if (x * x + y * y <= r * r / 4)income = "true";
             }
         }
         pointRepository.save(new Point(x, y, r, income));
         return pointRepository.findAll();
     }
 
-    @GetMapping("main/getPoints")
+    @GetMapping("/getPoints")
     public List<Point> test (){
         return pointRepository.findAll();
     }

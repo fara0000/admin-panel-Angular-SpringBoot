@@ -11,7 +11,7 @@ export class GetPointsService {
   constructor(private _http: Http) { }
 
   public getPoints() {
-    return this._http.get('http://localhost:8080/main/getPoints').pipe(
+    return this._http.get('http://localhost:8080/getPoints').pipe(
       map(res => res.json(),
         (err: any) => this.handleError(err)
       )

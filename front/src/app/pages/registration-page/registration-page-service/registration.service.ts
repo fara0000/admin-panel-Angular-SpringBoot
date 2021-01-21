@@ -11,7 +11,7 @@ export class RegistrationService {
   constructor(private _http: Http) { }
 
   public addNewUser(obj: any): any {
-    return this._http.post('http://localhost:8080/registration/register', obj).pipe(
+    return this._http.post('http://localhost:8080/register', obj).pipe(
       map(res => res.json(),
   (err: any) => {
             this.handleError(err);

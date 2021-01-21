@@ -23,13 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb58756a-ffdf-460e-b10f-08453196d9cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/PointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/application/controllers/PointController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/static/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/static/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page-service/check-point.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page-service/check-point.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page-service/get-points.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/main-page/main-page-service/get-points.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page-service/registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/registration-page/registration-page-service/registration.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
