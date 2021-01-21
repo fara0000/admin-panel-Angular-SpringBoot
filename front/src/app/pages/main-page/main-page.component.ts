@@ -31,6 +31,10 @@ export class MainPageComponent implements OnInit {
     setTimeout(() => console.log(this.tablePoints, 'tbpoint'), 1000)
   }
 
+  public getParameter() {
+    return this.parameter
+  }
+
   public checkPoint(data: object): void {
     this._checkPointService.checkPoints(data).subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),

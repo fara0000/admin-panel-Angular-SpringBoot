@@ -12,7 +12,7 @@ export class CheckPointService {
   }
 
   public checkPoints(data: any) {
-    return this._http.post('http://localhost:8080/main/checkPoint', data).pipe(
+    return this._http.post('http://localhost:8080/checkPoint', data).pipe(
       map(res => res.json(),
         (err: any) => this.handleError(err)
       )

@@ -18,7 +18,7 @@ public class PointController {
         this.pointRepository = pointRepository;
     }
 
-    @PostMapping("main/checkPoint")
+    @PostMapping("/checkPoint")
     public Iterable<Point> check(@RequestBody Map<String, String> request){
 //        TODO: add validation and check notNull
         double x = Double.parseDouble(request.get("x"));
@@ -32,7 +32,7 @@ public class PointController {
                 if ((x <= r/2) && (y >= -r)) income = "true";
             }
             if (x < 0){
-                if (x * x + y * y <= r * r / 4)income = "true";
+                if (x * x + y * y <= r * r / 4)income = "true";`
             }
         }
         pointRepository.save(new Point(x, y, r, income));
