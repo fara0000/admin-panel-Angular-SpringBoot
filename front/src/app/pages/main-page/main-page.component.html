@@ -40,10 +40,24 @@
             <span>Y</span>
           </div>
           <div class="main-page__table-header-element">
-            <span>Z</span>
+            <span>R</span>
           </div>
           <div class="main-page__table-header-element">
             <span>Result</span>
+          </div>
+        </div>
+        <div class="main-page__table-body-container" *ngFor="let point of getTablePoints()">
+          <div class="main-page__table-body-element">
+            <span>{{point.x}}</span>
+          </div>
+          <div class="main-page__table-body-element">
+            <span>{{point.y}}</span>
+          </div>
+          <div class="main-page__table-body-element">
+            <span>{{point.r}}</span>
+          </div>
+          <div class="main-page__table-body-element">
+            <span>{{point.income}}</span>
           </div>
         </div>
       </div>
