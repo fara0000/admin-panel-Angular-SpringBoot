@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-main-page',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   public parameter: number;
+  rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
 
   constructor() {
     this.parameter = 2;

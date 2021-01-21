@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainService } from './pages/main-page/main-page-service/main.service';
 import { LoginService } from './pages/login-page/login-page-service/login.service';
 import { AppComponent } from './app.component';
@@ -16,15 +16,16 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     AppComponent,
     routingComponents,
   ],
-  imports: [
-    HttpModule,
-    FormsModule,
-    ButtonModule,
-    BrowserModule,
-    InputTextModule,
-    AppRoutingModule,
-    InputNumberModule,
-  ],
+    imports: [
+        HttpModule,
+        FormsModule,
+        ButtonModule,
+        BrowserModule,
+        InputTextModule,
+        AppRoutingModule,
+        InputNumberModule,
+        ReactiveFormsModule,
+    ],
   providers: [
     MainService,
     LoginService,
