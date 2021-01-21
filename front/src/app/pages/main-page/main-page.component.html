@@ -1,7 +1,9 @@
 <div class="main-page__main-wrapper">
   <header class="main-page__header">
     <div class="header__logo" [ngStyle]="{cursor: 'pointer'}">
-      Lab4_Web
+      Imanzade & Antipin,
+      <br>
+      P3212, var: 313899
     </div>
     <div class="header__sign-out-button">
       <button pButton pRipple type="button" label="sign out" class="p-button-raised p-button-text p-button-plain" routerLink="/login"></button>
@@ -13,7 +15,7 @@
       </div>
       <form #pointForm="ngForm" class="main-page__form-container" (ngSubmit)="checkPoint(pointForm.value)">
         <div class="p-panel-titlebar">
-          <span class="p-panel-title">add new query</span>
+          <h3 class="p-panel-title">Add new point</h3>
         </div>
         <div class="p-field p-col-12 p-md-6">
           X:
@@ -21,7 +23,7 @@
         </div>
         <div class="p-field p-col-12 p-md-6">
           Y:
-          <input name="y" ngModel [ngStyle]="{width: '90%'}" id="y" type="text" pInputText maxlength="6" value="0" [formControl]="rateControl" pattern=^-?\d+[.,]?\d*$>
+          <input name="y" ngModel [ngStyle]="{width: '86%'}" id="y" type="text" pInputText maxlength="6" value="0" [formControl]="rateControl" pattern=^-?\d+[.,]?\d*$>
         </div>
         <div class="p-field p-col-12 p-md-6">
           R:

@@ -1,5 +1,5 @@
 .main-page__main-wrapper {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -40,12 +40,11 @@
   height: 90%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #canvas {
-  //margin-top: 7px;
-  /* width:20%; */
   cursor: crosshair;
 }
 
@@ -53,29 +52,49 @@
   width: 404px;
   height: 404px;
   border: 2px solid #ced4da;
-  margin: 0 35px 0 35px;
+  margin: 20px 5px 20px 20px;
 }
 
 .input__class {
   width: 286px;
 }
 
+
 .main-page__form-container {
-  width: 401.5px;
-  height: 401.5px;
+  width: 305px;
+  height: 320px;
   border: 2px solid #ced4da;
-  border-top: 0px;
+  margin: 20px 10px;
+}
+.p-panel-titlebar {
+  padding: .571em 1em;
+  background-color: #f4f4f4;
+  color: #333;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 10px;
+  //border-bottom: 2px solid #ced4da;
+}
+
+h3 {
+  text-align: center;
+}
+.p-field{
+  margin: 10px 10px 10px 20px;
+  //margin-right: auto;
+}
+button{
+  margin: 10px;
 }
 
 .main-page__table {
-  width: 350px;
+  width: 380px;
   height: 200px;
   border-collapse: collapse;
   cursor: pointer;
-  margin: 3%;
+  margin: 20px 20px 20px 5px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ced4da;
+  border: 2px solid #ced4da;
 }
 
 .main-page__table-header {
@@ -93,15 +112,14 @@
   color: white;
   font-weight: bold;
   padding: 10px;
-  border-left: 1px solid #ccc;
+  //border-left: 1px solid #ccc;
   text-align: center;
   font-size: 20px;
 }
 
-.p-panel-titlebar {
-  border: 1px solid #c8c8c8;
-  padding: .571em 1em;
-  background-color: #f4f4f4;
-  color: #333;
-  border-radius: 3px 3px 0 0;
+@media (max-width: 830px) {
+  .main-page__table{
+    width: 420px;
+  }
+
 }
