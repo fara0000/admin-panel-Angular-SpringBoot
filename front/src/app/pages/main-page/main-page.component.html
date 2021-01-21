@@ -13,24 +13,24 @@
       <div class="main-page__canvas-container">
         <canvas width="400px" height="400px" id="canvas"></canvas>
       </div>
-      <form class="main-page__form-container">
+      <form #pointForm="ngForm" class="main-page__form-container" (ngSubmit)="checkPoint(pointForm.value)">
         <div class="p-panel-titlebar">
           <h3 class="p-panel-title">Add new point</h3>
         </div>
         <div class="p-field p-col-12 p-md-6">
           X:
-          <p-inputNumber [ngStyle]="{width: '90%'}" mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5"></p-inputNumber>
+          <p-inputNumber  name="x" ngModel [ngStyle]="{width: '90%'}" mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5"></p-inputNumber>
         </div>
         <div class="p-field p-col-12 p-md-6">
           Y:
-          <input [ngStyle]="{width: '86%'}" id="y" type="text" pInputText>
+          <input name="y" ngModel [ngStyle]="{width: '86%'}" id="y" type="text" pInputText maxlength="6" value="0" [formControl]="rateControl" pattern=^-?\d+[.,]?\d*$>
         </div>
         <div class="p-field p-col-12 p-md-6">
-          Z:
-          <p-inputNumber mode="decimal" [showButtons]="true" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
+          R:
+          <p-inputNumber name="r" ngModel mode="decimal" [showButtons]="true"  (ngModelChange)="draw(parameter)" [(ngModel)]="parameter" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
         </div>
         <div class="main-page__button-container" [ngStyle]="{display: 'flex', justifyContent: 'center'}">
-          <button pButton type="button" label="Send" [ngStyle]="{width: '250px'}"></button>
+          <button pButton type="submit" label="Send" [ngStyle]="{width: '250px'}"></button>
         </div>
       </form>
       <div class="main-page__table">
@@ -42,10 +42,24 @@
             <span>Y</span>
           </div>
           <div class="main-page__table-header-element">
-            <span>Z</span>
+            <span>R</span>
           </div>
           <div class="main-page__table-header-element">
             <span>Result</span>
+          </div>
+        </div>
+        <div class="main-page__table-body-container" *ngFor="let point of getTablePoints()">
+          <div class="main-page__table-body-element">
+            <span>{{point.x}}</span>
+          </div>
+          <div class="main-page__table-body-element">
+            <span>{{point.y}}</span>
+          </div>
+          <div class="main-page__table-body-element">
+            <span>{{point.r}}</span>
+          </div>
+          <div class="main-page__table-body-element">
+            <span>{{point.income}}</span>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @PostMapping("registration/register")
+    @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody @Valid User user, BindingResult result) {
         try {
 //            log.debug("POST request to register user {}", user);

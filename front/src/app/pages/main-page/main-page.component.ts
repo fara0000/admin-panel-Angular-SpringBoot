@@ -1,5 +1,8 @@
+import { GetPointsService } from './main-page-service/get-points.service';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+import { HttpErrorResponse } from '@angular/common/http';
+import { CheckPointService } from './main-page-service/check-point.service';
 
 @Component({
   selector: 'app-main-page',
@@ -8,14 +11,39 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class MainPageComponent implements OnInit {
   public parameter: number;
+  private tablePoints: any;
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
 
-  constructor() {
+
+  constructor(private _getPointService: GetPointsService, private _checkPointService: CheckPointService) {
     this.parameter = 2;
   }
 
   ngOnInit(): void {
     this.draw(this.parameter);
+    this.getUserPoints();
+  }
+
+  public getUserPoints() {
+    this._getPointService.getPoints().subscribe((res: any) => this.tablePoints = res,
+      (err: HttpErrorResponse) => console.log(err),
+    )
+    setTimeout(() => console.log(this.tablePoints, 'tbpoint'), 1000)
+  }
+
+  public getParameter() {
+    return this.parameter
+  }
+
+  public checkPoint(data: object): void {
+    this._checkPointService.checkPoints(data).subscribe((res: any) => res,
+      (err: HttpErrorResponse) => console.log(err),
+    )
+    this.getUserPoints();
+  }
+
+  public getTablePoints(): any {
+    return this.tablePoints;
   }
 
   // tslint:disable-next-line:typedef

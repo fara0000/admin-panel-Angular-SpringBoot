@@ -18,7 +18,7 @@ public class PointController {
         this.pointRepository = pointRepository;
     }
 
-    @PostMapping("/check")
+    @PostMapping("/checkPoint")
     public Iterable<Point> check(@RequestBody Map<String, String> request){
 //        TODO: add validation and check notNull
         double x = Double.parseDouble(request.get("x"));
@@ -47,7 +47,7 @@ public class PointController {
         return pointRepository.findAll();
     }
 
-    @GetMapping("main/getPoints")
+    @GetMapping("/getPoints")
     public List<Point> test (){
         return pointRepository.findAll();
     }
