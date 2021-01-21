@@ -65,15 +65,19 @@ export class MainPageComponent implements OnInit {
       ctx.fillRect(200, 200, parameter * 20, parameter * 40); //rectangle
       ctx.fill();
 
+      ctx.beginPath();
       ctx.lineTo(200, 200 - parameter * 20); // quarter of circle
       if (parameter > 0) ctx.arc(200,200, Math.abs(parameter * 20), Math.PI/2, Math.PI, false);
       else ctx.arc(200,200, Math.abs(parameter * 20), Math.PI * 3 / 2, 0, false);
       ctx.lineTo(200,200);
+      ctx.closePath();
       ctx.fill();
 
+      ctx.beginPath();
       ctx.moveTo(200 - parameter * 20, 200); // triangle
       ctx.lineTo(200, 200 - parameter * 40);
       ctx.lineTo(200,200);
+      ctx.closePath();
       ctx.fill();
 
       for (let x = 40; x < 361; x += 40) { // gird
@@ -87,6 +91,7 @@ export class MainPageComponent implements OnInit {
       ctx.strokeStyle = "#333";
       ctx.stroke();
 
+
       ctx.fillStyle = 'black'; //axis
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -94,13 +99,14 @@ export class MainPageComponent implements OnInit {
       ctx.lineTo(400,200);
       ctx.moveTo(200,0);
       ctx.lineTo(200,400);
-      ctx.moveTo(190,20); //arrows at the ends of lines
+      ctx.moveTo(194,20); //arrows at the ends of lines
       ctx.lineTo(200,0);
-      ctx.lineTo(210,20);
-      ctx.moveTo(380,190);
+      ctx.lineTo(206,20);
+      ctx.moveTo(380,194);
       ctx.lineTo(400,200);
-      ctx.lineTo(380,210);
+      ctx.lineTo(380,206);
       ctx.stroke();
+      ctx.fill();
 
       ctx.font = "18px Arial";
       ctx.fillText("X", 385, 188);
@@ -118,6 +124,7 @@ export class MainPageComponent implements OnInit {
         ctx.fillText("-1", 122, 198);
         ctx.fillText("-1", 202, 276);
       }
+      ctx.closePath();
 
       //TODO: add drawing points through get request to /main/getPoints but other multiplayer
 
