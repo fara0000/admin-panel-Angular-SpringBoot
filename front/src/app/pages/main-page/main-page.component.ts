@@ -54,11 +54,12 @@ export class MainPageComponent implements OnInit {
   }
 
   public checkPoint(data: object): void {
+    console.log(data, 'data');
     this._checkPointService.checkPoints(data).subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
-    // @ts-ignore
-    setTimeout(this.getUserPoints(), 100);
+
+    setTimeout(() => this.getUserPoints(), 100);
   }
 
   public getTablePoints(): any {

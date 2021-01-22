@@ -6,6 +6,7 @@ import com.application.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -34,6 +35,25 @@ public class AuthController {
         } catch (Exception e) {
 //            log.error("Unexpected Error {}", e.getMessage());
             return new ResponseEntity<>("Unexpected Error", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody @Valid User user, BindingResult bindingResult) {
+        try {
+//            log.debug("POST request to login user {}", user);
+            if (bindingResult.hasErrors()) {
+//                log.error("Validation error");
+                return new ResponseEntity<>("Ошибка валидации", HttpStatus.BAD_REQUEST);
+            }
+            String token = userService.getUserToken(user);
+            return new ResponseEntity<>(token, HttpStatus.OK);
+        } catch (BadCredentialsException e) {
+//            log.error("Invalid user credentials {}", e.getMessage());
+            return new ResponseEntity<>("Неверные учетные данные пользователя", HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+//            log.error("Unexpected error {}", e.getMessage());
+            return new ResponseEntity<>("Непредвиденная ошибка", HttpStatus.BAD_REQUEST);
         }
     }
 }
