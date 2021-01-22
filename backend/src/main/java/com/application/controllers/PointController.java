@@ -41,7 +41,7 @@ public class PointController {
         }
 
         for (Point point: pointRepository.findAll()) {
-            if (point.getX()==x && point.getY()==y && point.getR() ==r) correct = false;
+            if (point.getX()==x && point.getY()==y) correct = false;
         }
         if (correct) pointRepository.save(new Point(x, y, r, income));
         return pointRepository.findAll();
