@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import { HttpErrorResponse } from '@angular/common/http';
 import { CheckPointService } from './main-page-service/check-point.service';
-import {element} from "protractor";
 
 @Component({
   selector: 'app-main-page',
@@ -21,8 +20,26 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.draw(this.parameter);
     this.getUserPoints();
+    // @ts-ignore
+    setTimeout(() => {
+      this.draw(this.parameter);
+      console.log("              _\n" +
+        "             | |\n" +
+        "             | |===( )   //////\n" +
+        "             |_|   |||  | o o|\n" +
+        "                    ||| ( c  )                  ____\n" +
+        "                     ||| \\= /                  ||   \\_\n" +
+        "                      ||||||                   ||     |\n" +
+        "                      ||||||                ...||__/|-\"\n" +
+        "                      ||||||             __|________|__\n" +
+        "                        |||             |______________|\n" +
+        "                        |||             || ||      || ||\n" +
+        "                        |||             || ||      || ||\n" +
+        "------------------------|||-------------||-||------||-||-------\n" +
+        "                        |__>            || ||      || ||\n" +
+        "\n");
+    }, 100);
   }
 
   public getUserPoints() {
@@ -40,11 +57,29 @@ export class MainPageComponent implements OnInit {
     this._checkPointService.checkPoints(data).subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
-    this.getUserPoints();
+    // @ts-ignore
+    setTimeout(this.getUserPoints(), 100);
   }
 
   public getTablePoints(): any {
     return this.tablePoints;
+  }
+
+  public sendPoint(event: any){
+    const X = (event.offsetX - 200) / 80;
+    const Y = (event.offsetY - 200) / -80;
+    // @ts-ignore
+    const data = {
+      x: X,
+      y: Y,
+      r: this.parameter
+    };
+    this.checkPoint(data);
+    // @ts-ignore
+    setTimeout(() => {
+      console.log("send point")
+      this.draw(this.parameter)}
+    , 100);
   }
 
   // tslint:disable-next-line:typedef
@@ -124,8 +159,6 @@ export class MainPageComponent implements OnInit {
         ctx.fillText("-2", 202, 356);
       }
       ctx.closePath();
-
-      //TODO: send request on canvas click
 
       this.getTablePoints().forEach((element: any) => {
         let x = element.x;
