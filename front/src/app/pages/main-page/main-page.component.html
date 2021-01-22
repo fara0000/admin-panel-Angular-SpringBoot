@@ -11,7 +11,7 @@
   </header>
   <div class="main-page__body">
       <div class="main-page__canvas-container">
-        <canvas width="400px" height="400px" id="canvas"></canvas>
+        <canvas width="400px" height="400px" id="canvas" (click)="sendPoint($event)"></canvas>
       </div>
       <form #pointForm="ngForm" class="main-page__form-container" (ngSubmit)="checkPoint(pointForm.value)">
         <div class="p-panel-titlebar">
@@ -23,7 +23,8 @@
         </div>
         <div class="p-field p-col-12 p-md-6">
           Y:
-          <input name="y" ngModel [ngStyle]="{width: '86%'}" id="y" type="text" pInputText maxlength="6" value="0" [formControl]="rateControl" pattern=^-?\d+[.,]?\d*$>
+          <input name="y" ngModel [ngStyle]="{width: '86%'}" id="y" type="text" pInputText maxlength="6" value="0"
+                 [formControl]="rateControl" pattern=^-?\d+[.,]?\d*$/>
         </div>
         <div class="p-field p-col-12 p-md-6">
           R:

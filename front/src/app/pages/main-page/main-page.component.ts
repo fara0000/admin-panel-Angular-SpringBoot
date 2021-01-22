@@ -20,8 +20,26 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.draw(this.parameter);
     this.getUserPoints();
+    // @ts-ignore
+    setTimeout(() => {
+      this.draw(this.parameter);
+      console.log("              _\n" +
+        "             | |\n" +
+        "             | |===( )   //////\n" +
+        "             |_|   |||  | o o|\n" +
+        "                    ||| ( c  )                  ____\n" +
+        "                     ||| \\= /                  ||   \\_\n" +
+        "                      ||||||                   ||     |\n" +
+        "                      ||||||                ...||__/|-\"\n" +
+        "                      ||||||             __|________|__\n" +
+        "                        |||             |______________|\n" +
+        "                        |||             || ||      || ||\n" +
+        "                        |||             || ||      || ||\n" +
+        "------------------------|||-------------||-||------||-||-------\n" +
+        "                        |__>            || ||      || ||\n" +
+        "\n");
+    }, 100);
   }
 
   public getUserPoints() {
@@ -39,20 +57,36 @@ export class MainPageComponent implements OnInit {
     this._checkPointService.checkPoints(data).subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
-    this.getUserPoints();
+    // @ts-ignore
+    setTimeout(this.getUserPoints(), 100);
   }
 
   public getTablePoints(): any {
     return this.tablePoints;
   }
 
+  public sendPoint(event: any){
+    const X = (event.offsetX - 200) / 80;
+    const Y = (event.offsetY - 200) / -80;
+    // @ts-ignore
+    const data = {
+      x: X,
+      y: Y,
+      r: this.parameter
+    };
+    this.checkPoint(data);
+    // @ts-ignore
+    setTimeout(() => {
+      console.log("send point")
+      this.draw(this.parameter)}
+    , 100);
+  }
+
   // tslint:disable-next-line:typedef
   draw(parameter: any = 0) {
-    parameter *= 2;
     const CANVAS_WIDTH = 400;
     const CANVAS_HEIGHT = 400;
     const canvas = document.getElementById('canvas');
-    // let table = document.getElementById('resultTable');
     // @ts-ignore
     if (canvas.getContext){
       // @ts-ignore
@@ -62,18 +96,22 @@ export class MainPageComponent implements OnInit {
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.fillStyle = 'rgb(35, 184, 253)'; //area
-      ctx.fillRect(200, 200, parameter * 20, parameter * 40); //rectangle
+      ctx.fillRect(200, 200, parameter * 40, parameter * 80); //rectangle
       ctx.fill();
 
+      ctx.beginPath();
       ctx.lineTo(200, 200 - parameter * 20); // quarter of circle
-      if (parameter > 0) ctx.arc(200,200, Math.abs(parameter * 20), Math.PI/2, Math.PI, false);
-      else ctx.arc(200,200, Math.abs(parameter * 20), Math.PI * 3 / 2, 0, false);
+      if (parameter > 0) ctx.arc(200,200, Math.abs(parameter * 40), Math.PI/2, Math.PI, false);
+      else ctx.arc(200,200, Math.abs(parameter * 40), Math.PI * 3 / 2, 0, false);
       ctx.lineTo(200,200);
+      ctx.closePath();
       ctx.fill();
 
-      ctx.moveTo(200 - parameter * 20, 200); // triangle
-      ctx.lineTo(200, 200 - parameter * 40);
+      ctx.beginPath();
+      ctx.moveTo(200 - parameter * 40, 200); // triangle
+      ctx.lineTo(200, 200 - parameter * 80);
       ctx.lineTo(200,200);
+      ctx.closePath();
       ctx.fill();
 
       for (let x = 40; x < 361; x += 40) { // gird
@@ -87,6 +125,7 @@ export class MainPageComponent implements OnInit {
       ctx.strokeStyle = "#333";
       ctx.stroke();
 
+
       ctx.fillStyle = 'black'; //axis
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -94,44 +133,44 @@ export class MainPageComponent implements OnInit {
       ctx.lineTo(400,200);
       ctx.moveTo(200,0);
       ctx.lineTo(200,400);
-      ctx.moveTo(190,20); //arrows at the ends of lines
+      ctx.moveTo(194,20); //arrows at the ends of lines
       ctx.lineTo(200,0);
-      ctx.lineTo(210,20);
-      ctx.moveTo(380,190);
+      ctx.lineTo(206,20);
+      ctx.moveTo(380,194);
       ctx.lineTo(400,200);
-      ctx.lineTo(380,210);
+      ctx.lineTo(380,206);
       ctx.stroke();
+      ctx.fill();
 
       ctx.font = "18px Arial";
       ctx.fillText("X", 385, 188);
       ctx.fillText("Y", 208, 18);
       ctx.fillText("0", 202, 198);
-      if (Math.abs(parameter) >= 4){
-        ctx.fillText("2", 362, 198);
-        ctx.fillText("2", 202, 38);
-        ctx.fillText("-2", 42, 198);
-        ctx.fillText("-2", 202, 356);
-      }
-      if (Math.abs(parameter) >= 2){
+      if (Math.abs(parameter) >= 1){
         ctx.fillText("1", 282, 198);
         ctx.fillText("1", 202, 116);
         ctx.fillText("-1", 122, 198);
         ctx.fillText("-1", 202, 276);
       }
+      if (Math.abs(parameter) >= 2){
+        ctx.fillText("2", 362, 198);
+        ctx.fillText("2", 202, 38);
+        ctx.fillText("-2", 42, 198);
+        ctx.fillText("-2", 202, 356);
+      }
+      ctx.closePath();
 
-      //TODO: add drawing points through get request to /main/getPoints but other multiplayer
-
-      // for (let r = 1, n = table.rows.length; r < n; r++) { //dots
-      //   let x = table.rows[r].cells[0].innerHTML;
-      //   let y = table.rows[r].cells[1].innerHTML;
-      //   let result = check(x, y, parameter);
-      //   if (result !== "") {
-      //     result === 'true' ? ctx.fillStyle = 'green' : ctx.fillStyle = 'red';
-      //     ctx.beginPath();
-      //     ctx.arc(200 + 40 * x, 200 - 40 * y, 6, 0, 2 * Math.PI);
-      //     ctx.fill();
-      //   }
-      // }
+      this.getTablePoints().forEach((element: any) => {
+        let x = element.x;
+        let y = element.y;
+        let result = this.check(x, y, parameter);
+          if (result !== "") {
+            result === 'true' ? ctx.fillStyle = 'green' : ctx.fillStyle = 'red';
+            ctx.beginPath();
+            ctx.arc(200 + 80 * x, 200 - 80 * y, 6, 0, 2 * Math.PI);
+            ctx.fill();
+          }
+      })
     }
   }
 

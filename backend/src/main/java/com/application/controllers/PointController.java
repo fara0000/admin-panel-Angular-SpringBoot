@@ -20,7 +20,6 @@ public class PointController {
 
     @PostMapping("/checkPoint")
     public Iterable<Point> check(@RequestBody Map<String, String> request){
-//        TODO: add validation and check notNull
         double x = Double.parseDouble(request.get("x"));
         double y = Double.parseDouble(request.get("y"));
         double r = Double.parseDouble(request.get("r"));
@@ -41,14 +40,18 @@ public class PointController {
         }
 
         for (Point point: pointRepository.findAll()) {
-            if (point.getX()==x && point.getY()==y && point.getR() ==r) correct = false;
+            if (point.getX() == x && point.getY() == y) {
+                correct = false;
+                break;
+            }
         }
         if (correct) pointRepository.save(new Point(x, y, r, income));
         return pointRepository.findAll();
     }
 
     @GetMapping("/getPoints")
-    public List<Point> test (){
+    public List<Point> test () throws InterruptedException {
+        Thread.sleep(50);
         return pointRepository.findAll();
     }
 
