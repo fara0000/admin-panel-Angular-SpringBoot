@@ -1,5 +1,6 @@
 package com.application.security;
 
+import com.application.security.jwt.AuthTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,10 +24,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-//    @Bean
-//    public AuthTokenFilter authenticationJwtTokenFilter() {
-//        return new AuthTokenFilter();
-//    }
+    @Bean
+    public AuthTokenFilter authenticationJwtTokenFilter() {
+        return new AuthTokenFilter();
+    }
 
 
     @Bean
@@ -36,21 +37,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable();
-//                .authorizeRequests()
-//                //Доступ только для не зарегистрированных пользователей
-//                .antMatchers(HttpMethod.GET, "/auth").not().fullyAuthenticated()
-//                .antMatchers(HttpMethod.POST, "/auth/login", "/auth/register").not().fullyAuthenticated()
-//                //Доступ разрешен всем пользователей
-//                .antMatchers("/", "/static/**").permitAll()
-//                .antMatchers(HttpMethod.GET, "/areas", "/auth").permitAll()
-//                //Доступ только для авторизованных пользователей
-//                .antMatchers("/areas/**").authenticated()
-//                .and()
-//                .exceptionHandling().authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)).and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-  //              .and()
-//                .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        httpSecurity.csrf().disable()
+                .authorizeRequests()
+                //Доступ только для не зарегистрированных пользователей
+                .antMatchers(HttpMethod.GET, "/").not().fullyAuthenticated()
+                .antMatchers(HttpMethod.POST, "/login", "/register").not().fullyAuthenticated()
+                //Доступ разрешен всем пользователей
+                .antMatchers("/", "/static/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/main", "/").permitAll()
+                //Доступ только для авторизованных пользователей
+                .antMatchers("/main/**").authenticated()
+                .and()
+                .exceptionHandling().authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)).and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
 }
