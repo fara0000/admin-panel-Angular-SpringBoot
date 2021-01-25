@@ -28,7 +28,7 @@
         </div>
         <div class="p-field p-col-12 p-md-6">
           R:
-          <p-inputNumber name="r" ngModel mode="decimal" [showButtons]="true"  (ngModelChange)="draw(parameter)" [(ngModel)]="parameter" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
+          <p-inputNumber name="r" #spy ngModel mode="decimal" [showButtons]="true"  (ngModelChange)="draw(spy.value)" [(ngModel)]="parameter" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
         </div>
         <div class="main-page__button-container" [ngStyle]="{display: 'flex', justifyContent: 'center'}">
           <button pButton type="submit" label="Send" [ngStyle]="{width: '250px'}"></button>
