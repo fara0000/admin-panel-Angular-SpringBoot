@@ -11,6 +11,7 @@
 	<groupId>backend.src.main.java</groupId>
 	<artifactId>lab4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>lab4</name>
 	<description>Angular + Spring Application</description>
 

@@ -2,15 +2,14 @@ package com.application.controllers;
 
 import com.application.entities.Point;
 import com.application.repositories.PointRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
+@Slf4j
 public class PointController {
     private final PointRepository pointRepository;
 
@@ -23,10 +22,13 @@ public class PointController {
         double x = Double.parseDouble(request.get("x"));
         double y = Double.parseDouble(request.get("y"));
         double r = Double.parseDouble(request.get("r"));
+        int userId = -1;
         boolean correct = true;
-        if (Math.abs(x) > 2) {System.out.println("Wrong value of X"); correct = false;}
-        if (Math.abs(x) > 3) {System.out.println("Wrong value of Y"); correct = false;}
-        if (Math.abs(r) > 2) {System.out.println("Wrong value of R"); correct = false;}
+        if (request.get("userId") == null) {log.error("userId isn't set"); correct = false;}
+        else userId = Integer.parseInt(request.get("userId"));
+        if (Math.abs(x) > 2) {log.error("Wrong value of X"); correct = false;}
+        if (Math.abs(x) > 3) {log.error("Wrong value of Y"); correct = false;}
+        if (Math.abs(r) > 2) {log.error("Wrong value of R"); correct = false;}
         String income = "false";
         if (y > 0){
             if ((y <= 2 * x + r) && (x <= 0)) income = "true";
@@ -39,20 +41,20 @@ public class PointController {
             }
         }
 
-        for (Point point: pointRepository.findAll()) {
-            if (point.getX() == x && point.getY() == y) {
+        for (Point point: pointRepository.findByUserId(userId)) {
+            if (point.getX() == x && point.getY() == y && point.getR() == r) {
                 correct = false;
                 break;
             }
         }
-        if (correct) pointRepository.save(new Point(x, y, r, income));
-        return pointRepository.findAll();
+        if (correct) pointRepository.save(new Point(x, y, r, income, userId));
+        return pointRepository.findByUserId(userId);
     }
 
-    @GetMapping("/getPoints")
-    public List<Point> test () throws InterruptedException {
+    @GetMapping("/getPoints/{userId}")
+    public List<Point> test (@PathVariable String userId) throws InterruptedException {
         Thread.sleep(50);
-        return pointRepository.findAll();
+        return pointRepository.findByUserId(Integer.parseInt(userId));
     }
 
 }
