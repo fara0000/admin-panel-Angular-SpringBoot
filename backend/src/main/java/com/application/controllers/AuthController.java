@@ -1,10 +1,13 @@
 package com.application.controllers;
 
 
+import com.application.entities.LoginResponse;
 import com.application.entities.User;
+import com.application.repositories.UserRepository;
 import com.application.services.UserService;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,8 +20,11 @@ import javax.validation.Valid;
 public class AuthController {
     private final UserService userService;
 
-    public AuthController(UserService userService) {
+    private final UserRepository userRepository;
+
+    public AuthController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping("/register")
@@ -47,9 +53,10 @@ public class AuthController {
                 log.error("Validation error");
                 return new ResponseEntity<>("Ошибка валидации", HttpStatus.BAD_REQUEST);
             }
-            String token = userService.getUserToken(user);
             Gson gson = new Gson();
-            return new ResponseEntity<>(gson.toJson(token), HttpStatus.OK);
+            Long userId = userRepository.findByUsername(user.getUsername()).getId();
+            LoginResponse loginResponse = new LoginResponse(userService.getUserToken(user), userId);
+            return new ResponseEntity<>(gson.toJson(loginResponse), HttpStatus.OK);
         } catch (BadCredentialsException e) {
             log.error("Invalid user credentials {}", e.getMessage());
             return new ResponseEntity<>("Неверные учетные данные пользователя", HttpStatus.BAD_REQUEST);
