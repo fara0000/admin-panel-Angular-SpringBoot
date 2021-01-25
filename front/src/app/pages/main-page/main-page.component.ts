@@ -12,6 +12,7 @@ import { CheckPointService } from './main-page-service/check-point.service';
 export class MainPageComponent implements OnInit {
   public parameter: number;
   private tablePoints: any;
+
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
 
 

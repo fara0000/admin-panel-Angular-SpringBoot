@@ -1,6 +1,7 @@
 import { LoginService } from './login-page-service/login.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-page',
@@ -11,7 +12,7 @@ export class LoginPageComponent implements OnInit {
   username: any;
   password: any;
 
-  constructor(private _service: LoginService) { }
+  constructor(private _service: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,9 +24,17 @@ export class LoginPageComponent implements OnInit {
 
   public authorization(obj: any): any {
     this._service.authUser(obj).subscribe(
-      (res: any) => res,
-      (err: HttpErrorResponse) => console.log(err),
+      (res: any) => {
+        this.setToken(res);
+        return res;
+      },
+      (err: HttpErrorResponse) => console.log(err, 'ERROR TOKEN'),
     );
+  }
+
+  public setToken(token: any) {
+    localStorage.setItem("token: ", token);
+    this.router.navigate(["/main"]);
   }
 
   public cleanInputValue(): void {
