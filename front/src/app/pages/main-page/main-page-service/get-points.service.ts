@@ -7,11 +7,14 @@ import { Http, Response } from '@angular/http';
   providedIn: 'root'
 })
 export class GetPointsService {
-
-  constructor(private _http: Http) { }
+  public id: string | null
+  constructor(private _http: Http) {
+    console.log(localStorage.getItem("userId"), 'ls');
+    this.id = localStorage.getItem("userId")
+  }
 
   public getPoints() {
-    return this._http.get('http://localhost:8080/getPoints').pipe(
+    return this._http.get(`http://localhost:8080/getPoints/${this.id}`).pipe(
       map(res => res.json(),
         (err: any) => this.handleError(err)
       )
