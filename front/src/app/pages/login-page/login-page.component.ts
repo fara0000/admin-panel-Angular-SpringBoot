@@ -35,16 +35,16 @@ export class LoginPageComponent implements OnInit {
   }
 
   public setToken(token: any) {
-    localStorage.setItem("token: ", token);
+    localStorage.setItem("token", token);
   }
 
   public setUserId(id: any) {
-    localStorage.setItem("id: ", id);
+    localStorage.setItem("userId", id);
     this.getMainPage();
   }
 
   public getMainPage() {
-    setTimeout(() => this.router.navigate(["/main"]), 5000);
+    setTimeout(() => this.router.navigate(["/main"]), 1000);
   }
 
   public cleanInputValue(): void {

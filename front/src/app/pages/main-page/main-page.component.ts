@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import { HttpErrorResponse } from '@angular/common/http';
 import { CheckPointService } from './main-page-service/check-point.service';
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
@@ -16,7 +17,7 @@ export class MainPageComponent implements OnInit {
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
 
 
-  constructor(private _getPointService: GetPointsService, private _checkPointService: CheckPointService) {
+  constructor(private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
     this.parameter = 2;
   }
 
@@ -52,6 +53,11 @@ export class MainPageComponent implements OnInit {
 
   public getParameter() {
     return this.parameter
+  }
+
+  public logout() {
+    this._router.navigate(["/login"]);
+    localStorage.clear();
   }
 
   public checkPoint(data: object): void {

@@ -9,10 +9,8 @@ import { Http, Response } from '@angular/http';
 export class GetPointsService {
   public id: string | null
   constructor(private _http: Http) {
-    console.log(localStorage.getItem("id"));
-    this.id = localStorage.getItem("id")
-    console.log(this.id, 'id');
-    setTimeout(() => console.log(this.id, 'id s zaderjkoy'), 1000);
+    console.log(localStorage.getItem("userId"), 'ls');
+    this.id = localStorage.getItem("userId")
   }
 
   public getPoints() {
