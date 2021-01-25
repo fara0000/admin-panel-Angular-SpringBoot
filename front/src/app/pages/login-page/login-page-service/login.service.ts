@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private _http: Http) { }
 
   public authUser(obj: any): any {
-    return this._http.post('localhost:8080/login', obj).pipe(
+    return this._http.post('http://localhost:8080/login', obj).pipe(
       map(res => res.json(),
   (err: any) => {
           this.handleError(err);

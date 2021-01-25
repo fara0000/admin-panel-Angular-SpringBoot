@@ -8,7 +8,7 @@
     <div class="login-page__login-wrapper">
         <div class="login-page__login-wrapper_input-wrapper">
           <span class="p-float-label">
-            <input class="login-page__input" [(ngModel)]="login" id="float-input-username" type="text" pInputText />
+            <input class="login-page__input" [(ngModel)]="username" id="float-input-username" type="text" pInputText />
             <label [ngStyle]="{fontSize: 'larger'}">Username</label>
           </span>
         </div>
@@ -28,7 +28,7 @@
           </a>
       </div>
       <div>
-          <button pButton type="button" label="Sign in" class="login-page__button" (click)="auth(login, password)"></button>
+          <button pButton type="button" label="Sign in" class="login-page__button" (click)="auth(username, password)"></button>
       </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./login-page.component.less']
 })
 export class LoginPageComponent implements OnInit {
-  login: any;
+  username: any;
   password: any;
 
   constructor(private _service: LoginService) { }
@@ -16,9 +16,8 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public auth(login: string, password: string): any {
-    this.authorization({login, password});
-    console.log({login, password}, 'log');
+  public auth(username: string, password: string): any {
+    this.authorization({username, password});
     this.cleanInputValue();
   }
 
@@ -30,7 +29,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   public cleanInputValue(): void {
-    this.login = '';
+    this.username = '';
     this.password = '';
   }
 }
