@@ -16,6 +16,7 @@ public class Point {
     private double y;
     private double r;
     private String income;
+    private Integer userId;
 
 
     public Point() {}
@@ -24,6 +25,13 @@ public class Point {
         this.y = y;
         this.r = r;
         this.income = income;
+    }
+    public Point(double x, double y, double r, String income, Integer userId) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.income = income;
+        this.userId = userId;
     }
 
     @Override
