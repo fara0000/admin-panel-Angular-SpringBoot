@@ -3,10 +3,7 @@ package com.application.controllers;
 import com.application.entities.Point;
 import com.application.repositories.PointRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -54,10 +51,10 @@ public class PointController {
         return pointRepository.findByUserId(userId);
     }
 
-    @GetMapping("/getPoints")
-    public List<Point> test () throws InterruptedException {
+    @GetMapping("/getPoints/{userId}")
+    public List<Point> test (@PathVariable String userId) throws InterruptedException {
         Thread.sleep(50);
-        return pointRepository.findAll();
+        return pointRepository.findByUserId(Integer.parseInt(userId));
     }
 
 }
