@@ -23,10 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb58756a-ffdf-460e-b10f-08453196d9cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/front/src/app/guard/guard.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/guard/guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/token-service.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/token-service.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page-service/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page-service/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/pages/login-page/login-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,26 +93,26 @@
     <property name="ts.external.directory.path" value="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\front\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.application.entities" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\front\src\app\services" />
+      <recent name="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\front\src\app\guard" />
+      <recent name="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\backend\src\main\resources\static" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\backend\src\main\java\com\application\security" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\BOSS\Desktop\WEB\Lab4_WEB\backend\src\main\resources\static" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.application.entities" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -228,10 +230,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1610649628316" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1610484689620">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611649379328">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1610484689620" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1611649379328" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1610552112915">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -304,6 +306,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1964" y="281" key="MultipleFileMergeDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1611247620129" />
+    <state x="475" y="66" key="RollbackChangesDialog" timestamp="1611649404840">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="475" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1611649404840" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1610552114767">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -317,10 +323,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="541" y="32" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1611064726826" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1610707362932">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1611648982821">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610707362932" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1611648982821" />
     <state x="-1297" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1609336410822">
       <screen x="-1920" y="4" width="1920" height="1040" />
     </state>

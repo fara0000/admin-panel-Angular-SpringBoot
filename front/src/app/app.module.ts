@@ -10,24 +10,26 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { RegistrationService } from './pages/registration-page/registration-page-service/registration.service';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import {GetPointsService} from "./pages/main-page/main-page-service/get-points.service";
+import { GetPointsService } from "./pages/main-page/main-page-service/get-points.service";
+import {TokenService} from "./services/token-service.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
   ],
-    imports: [
-        HttpModule,
-        FormsModule,
-        ButtonModule,
-        BrowserModule,
-        InputTextModule,
-        AppRoutingModule,
-        InputNumberModule,
-        ReactiveFormsModule,
-    ],
+  imports: [
+      HttpModule,
+      FormsModule,
+      ButtonModule,
+      BrowserModule,
+      InputTextModule,
+      AppRoutingModule,
+      InputNumberModule,
+      ReactiveFormsModule,
+  ],
   providers: [
+    TokenService,
     LoginService,
     GetPointsService,
     CheckPointService,
