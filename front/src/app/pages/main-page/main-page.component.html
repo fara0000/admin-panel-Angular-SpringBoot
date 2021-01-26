@@ -9,6 +9,9 @@
       <button pButton pRipple type="button" label="sign out" class="p-button-raised p-button-text p-button-plain" (click)="logout()"></button>
     </div>
   </header>
+  <div>
+    <span [ngStyle]="{fontSize: '30px', color: 'blue'}">USER: {{loginName}}</span>
+  </div>
   <div class="main-page__body">
       <div class="main-page__canvas-container">
         <canvas width="400px" height="400px" id="canvas" (click)="sendPoint($event)"></canvas>
