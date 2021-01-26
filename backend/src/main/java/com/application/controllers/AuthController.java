@@ -65,7 +65,7 @@ public class AuthController {
             return new ResponseEntity<>("Неверные учетные данные пользователя", HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             log.error("Unexpected error {}", e.getMessage());
-            return new ResponseEntity<>("Непредвиденная ошибка", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Неверные учетные данные пользователя", HttpStatus.BAD_REQUEST);
         }
     }
 }

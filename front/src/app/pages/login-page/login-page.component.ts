@@ -11,6 +11,7 @@ import {TokenService} from "../../services/token-service.service";
   styleUrls: ['./login-page.component.less']
 })
 export class LoginPageComponent implements OnInit {
+  error: any;
   username: any;
   password: any;
 
@@ -31,12 +32,12 @@ export class LoginPageComponent implements OnInit {
         this._tokenService.saveUser(res.id);
         this.getMainPage();
       },
-      (err: HttpErrorResponse) => console.log(err, 'ERROR TOKEN'),
+      (err: any) => this.error = err._body,
     );
   }
 
   public getMainPage() {
-    setTimeout(() => this.router.navigate(["/main"]), 1000);
+    setTimeout(() => this.router.navigate(["/lab4/main"]), 1000);
   }
 
   public cleanInputValue(): void {

@@ -60,7 +60,7 @@ export class MainPageComponent implements OnInit {
   }
 
   public logout() {
-    this._router.navigate(["/login"]);
+    this._router.navigate(["/lab4/login"]);
     this._tokenService.signOut();
   }
 

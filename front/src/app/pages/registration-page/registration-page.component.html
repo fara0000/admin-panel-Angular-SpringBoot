@@ -1,35 +1,38 @@
-<div class="registration-page__wrapper">
-  <div class="registration-page__header-wrapper">
-    <div class="registration-page__header-wrapper__title-wrapper">
-      <i class="pi pi-lock" [ngStyle]="{fontSize: '30px'}"></i>
-      <h1 class="registration-page__header-wrapper__title">Sign up</h1>
+<div class="registration-page-main__wrapper">
+  <div class="registration-page__wrapper">
+    <div class="registration-page__header-wrapper">
+      <div class="registration-page__header-wrapper__title-wrapper">
+        <i class="pi pi-lock" [ngStyle]="{fontSize: '30px'}"></i>
+        <h1 class="registration-page__header-wrapper__title">Sign up</h1>
+      </div>
     </div>
-  </div>
-  <div class="registration-page__login-wrapper">
-    <div class="registration-page__login-wrapper_input-wrapper">
+    <div class="registration-page__login-wrapper">
+      <div class="registration-page__login-wrapper_input-wrapper">
           <span class="p-float-label">
             <input class="registration-page__input" [(ngModel)]="username" id="float-input-username" type="text" pInputText
-              minlength="4"/>
+                   minlength="4"/>
             <label for="float-input-username" [ngStyle]="{fontSize: 'larger'}">Username</label>
           </span>
+      </div>
     </div>
-  </div>
-  <div class="registration-page__login-wrapper">
-    <div class="registration-page__login-wrapper_input-wrapper" [ngStyle]="{height: '70px'}">
+    <div class="registration-page__login-wrapper">
+      <div class="registration-page__login-wrapper_input-wrapper" [ngStyle]="{height: '70px'}">
           <span class="p-float-label">
             <input class="registration-page__input" [(ngModel)]="password" id="float-input-password" type="password" pInputText
-              minlength="4"/>
+                   minlength="4"/>
             <label for="float-input-password" [ngStyle]="{fontSize: 'larger'}">Password</label>
           </span>
+      </div>
+    </div>
+    <div class="registration-page__button-wrapper">
+      <div class="registration-page__link-wrapper">
+        <a class="registration-page__button-link" routerLink="/lab4/login">already registered? Log In</a>
+      </div>
+      <div>
+        <button pButton type="button" label="Sign up" class="registration-page__button" (click)="register(username, password)">
+        </button>
+      </div>
     </div>
   </div>
-  <div class="registration-page__button-wrapper">
-    <div class="registration-page__link-wrapper">
-      <a class="registration-page__button-link" routerLink="/login">already registered? Log In</a>
-    </div>
-    <div>
-      <button pButton type="button" label="Sign up" class="registration-page__button" (click)="register(username, password)">
-      </button>
-    </div>
-  </div>
+  <span [ngStyle]="{fontSize: '30px', color: 'red', marginTop: '5px'}">{{error}}</span>
 </div>

@@ -6,10 +6,10 @@ import { RegistrationPageComponent } from './pages/registration-page/registratio
 import {AuthGuard} from "./guard/guard";
 
 const routes: Routes = [
-  { path: 'login', component: LoginPageComponent },
-  { path: 'registration', component: RegistrationPageComponent },
-  { path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
-  { path: '',   redirectTo: '/login', pathMatch: 'full' }
+  { path: 'lab4/login', component: LoginPageComponent },
+  { path: 'lab4/registration', component: RegistrationPageComponent },
+  { path: 'lab4/main', component: MainPageComponent, canActivate: [AuthGuard]},
+  { path: '',   redirectTo: '/lab4/login', pathMatch: 'full' }
 ];
 
 @NgModule({

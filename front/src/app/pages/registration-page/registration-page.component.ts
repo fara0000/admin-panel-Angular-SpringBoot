@@ -8,6 +8,7 @@ import { RegistrationService } from './registration-page-service/registration.se
   styleUrls: ['./registration-page.component.less']
 })
 export class RegistrationPageComponent implements OnInit {
+  error: any;
   username: any;
   password: any;
 
@@ -24,7 +25,7 @@ export class RegistrationPageComponent implements OnInit {
   public sendNewUser(obj: any): any {
     this._service.addNewUser(obj).subscribe(
       (res: any) => res,
-      (err: HttpErrorResponse) => console.log(err),
+      (err: any) => this.error = err._body,
     );
   }
 
