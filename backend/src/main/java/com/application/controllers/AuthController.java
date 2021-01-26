@@ -28,7 +28,7 @@ public class AuthController {
     }
 
 
-    @RequestMapping(value = "/register", method = {RequestMethod.OPTIONS, RequestMethod.POST})
+    @RequestMapping(value = "lab4/register", method = {RequestMethod.OPTIONS, RequestMethod.POST})
     public ResponseEntity<String> register(@RequestBody @Valid User user, BindingResult result) {
         System.out.println("Prishel zapros s fronta");
         try {
@@ -47,7 +47,7 @@ public class AuthController {
         }
     }
 
-    @RequestMapping(value = "/login", method = {RequestMethod.OPTIONS, RequestMethod.POST})
+    @RequestMapping(value = "lab4/login", method = {RequestMethod.OPTIONS, RequestMethod.POST})
     public ResponseEntity<String> login(@RequestBody @Valid User user, BindingResult bindingResult) {
         System.out.println("Prishel zapros s fronta");
         try {

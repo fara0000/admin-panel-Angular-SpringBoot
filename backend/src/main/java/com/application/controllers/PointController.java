@@ -17,7 +17,7 @@ public class PointController {
         this.pointRepository = pointRepository;
     }
 
-    @PostMapping("/checkPoint")
+    @PostMapping("/lab4/checkPoint")
     public Iterable<Point> check(@RequestBody Map<String, String> request){
         double x = Double.parseDouble(request.get("x"));
         double y = Double.parseDouble(request.get("y"));
@@ -51,7 +51,7 @@ public class PointController {
         return pointRepository.findAll();
     }
 
-    @GetMapping("/getPoints") ///{userId}
+    @GetMapping("/lab4/getPoints") ///{userId}
     public List<Point> test () throws InterruptedException { //@PathVariable String userId
         Thread.sleep(50);
 //        return pointRepository.findByUserId(Integer.parseInt(userId));
