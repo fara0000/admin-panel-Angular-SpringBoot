@@ -105,7 +105,7 @@ export class MainPageComponent implements OnInit {
       // @ts-ignore
       const ctx = canvas.getContext('2d');
 
-      ctx.fillStyle = "rgba(256, 256, 256, 0.8)"; // background fill
+      ctx.fillStyle = "rgba(256, 256, 256)"; // background fill
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.fillStyle = 'rgb(35, 184, 253)'; //area

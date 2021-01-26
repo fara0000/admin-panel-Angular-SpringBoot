@@ -52,8 +52,7 @@ public class PointController {
     }
 
     @GetMapping("/lab4/getPoints") ///{userId}
-    public List<Point> test () throws InterruptedException { //@PathVariable String userId
-        Thread.sleep(50);
+    public List<Point> test () { //@PathVariable String userId
 //        return pointRepository.findByUserId(Integer.parseInt(userId));
         return pointRepository.findAll();
     }
