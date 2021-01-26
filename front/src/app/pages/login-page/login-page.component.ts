@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { GetPointsService } from "../main-page/main-page-service/get-points.service";
+import {TokenService} from "../../services/token-service.service";
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +14,7 @@ export class LoginPageComponent implements OnInit {
   username: any;
   password: any;
 
-  constructor(private _loginService: LoginService, private router: Router, private _getPointServer: GetPointsService) { }
+  constructor(private _tokenService: TokenService, private _loginService: LoginService, private router: Router, private _getPointServer: GetPointsService) { }
 
   ngOnInit(): void {
   }
@@ -26,21 +27,12 @@ export class LoginPageComponent implements OnInit {
   public authorization(obj: any): any {
     this._loginService.authUser(obj).subscribe(
       (res: any) => {
-        this.setToken(res.token);
-        this.setUserId(res.id);
-        return res;
+        this._tokenService.saveToken(res.token);
+        this._tokenService.saveUser(res.id);
+        this.getMainPage();
       },
       (err: HttpErrorResponse) => console.log(err, 'ERROR TOKEN'),
     );
-  }
-
-  public setToken(token: any) {
-    localStorage.setItem("token", token);
-  }
-
-  public setUserId(id: any) {
-    localStorage.setItem("userId", id);
-    this.getMainPage();
   }
 
   public getMainPage() {
