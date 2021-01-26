@@ -58,10 +58,10 @@ public class AuthController {
             LoginResponse loginResponse = new LoginResponse(userService.getUserToken(user), userId);
             return new ResponseEntity<>(gson.toJson(loginResponse), HttpStatus.OK);
         } catch (BadCredentialsException e) {
-            log.error("Invalid user credentials {}", e.getMessage());
+//            log.error("Invalid user credentials {}", e.getMessage());
             return new ResponseEntity<>("Неверные учетные данные пользователя", HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            log.error("Unexpected error {}", e.getMessage());
+//            log.error("Unexpected error {}", e.getMessage());
             return new ResponseEntity<>("Непредвиденная ошибка", HttpStatus.BAD_REQUEST);
         }
     }

@@ -2,16 +2,20 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { TokenService } from "../../../services/token-service.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetPointsService {
-
-  constructor(private _http: Http) { }
+  // public id: string | null
+  constructor(private _http: Http, private _tokenService: TokenService) {
+    // this.id = this._tokenService.getUser();
+    // console.log(this._tokenService.getUser());
+  }
 
   public getPoints() {
-    return this._http.get('http://localhost:8080/getPoints').pipe(
+    return this._http.get(`http://localhost:8080/getPoints`).pipe(
       map(res => res.json(),
         (err: any) => this.handleError(err)
       )

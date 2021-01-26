@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import { HttpErrorResponse } from '@angular/common/http';
 import { CheckPointService } from './main-page-service/check-point.service';
+import {Router, RouterLink} from "@angular/router";
+import {TokenService} from "../../services/token-service.service";
 
 @Component({
   selector: 'app-main-page',
@@ -12,11 +14,15 @@ import { CheckPointService } from './main-page-service/check-point.service';
 export class MainPageComponent implements OnInit {
   public parameter: number;
   private tablePoints: any;
+  public userId: number | null
+
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
+  private x: any;
 
 
-  constructor(private _getPointService: GetPointsService, private _checkPointService: CheckPointService) {
+  constructor(private _tokenService: TokenService, private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
     this.parameter = 2;
+    this.userId = this._tokenService.getUser();
   }
 
   ngOnInit(): void {
@@ -53,8 +59,12 @@ export class MainPageComponent implements OnInit {
     return this.parameter
   }
 
+  public logout() {
+    this._router.navigate(["/login"]);
+    this._tokenService.signOut();
+  }
+
   public checkPoint(data: object): void {
-    console.log(data, 'data');
     this._checkPointService.checkPoints(data).subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
