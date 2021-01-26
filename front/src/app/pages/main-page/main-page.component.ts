@@ -14,7 +14,8 @@ import {TokenService} from "../../services/token-service.service";
 export class MainPageComponent implements OnInit {
   public parameter: number;
   private tablePoints: any;
-  public userId: number | null
+  public userId: number | null;
+  public loginName: any;
 
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
   private x: any;
@@ -28,6 +29,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.getUserPoints();
     // @ts-ignore
+    this.loginName = localStorage.getItem('username');
     setTimeout(() => {
       this.draw(this.parameter);
       console.log("              _\n" +

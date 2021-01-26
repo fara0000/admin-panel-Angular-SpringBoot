@@ -22,6 +22,7 @@ export class LoginPageComponent implements OnInit {
 
   public auth(username: string, password: string): any {
     this.authorization({username, password});
+    localStorage.setItem('username', username);
     this.cleanInputValue();
   }
 
