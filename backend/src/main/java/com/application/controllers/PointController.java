@@ -24,7 +24,7 @@ public class PointController {
         double r = Double.parseDouble(request.get("r"));
         int userId = -1;
         boolean correct = true;
-        if (request.get("userId") == null) {log.error("userId isn't set"); correct = false;}
+        if (request.get("userId") == null) {log.error("userId isn't set"); /*correct = false;*/}
         else userId = Integer.parseInt(request.get("userId"));
         if (Math.abs(x) > 2) {log.error("Wrong value of X"); correct = false;}
         if (Math.abs(x) > 3) {log.error("Wrong value of Y"); correct = false;}
@@ -48,13 +48,14 @@ public class PointController {
             }
         }
         if (correct) pointRepository.save(new Point(x, y, r, income, userId));
-        return pointRepository.findByUserId(userId);
+        return pointRepository.findAll();
     }
 
-    @GetMapping("/getPoints/{userId}")
-    public List<Point> test (@PathVariable String userId) throws InterruptedException {
+    @GetMapping("/getPoints") ///{userId}
+    public List<Point> test () throws InterruptedException { //@PathVariable String userId
         Thread.sleep(50);
-        return pointRepository.findByUserId(Integer.parseInt(userId));
+//        return pointRepository.findByUserId(Integer.parseInt(userId));
+        return pointRepository.findAll();
     }
 
 }

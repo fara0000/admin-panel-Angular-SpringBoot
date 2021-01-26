@@ -27,26 +27,29 @@ public class AuthController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/register")
+
+    @RequestMapping(value = "/register", method = {RequestMethod.OPTIONS, RequestMethod.POST})
     public ResponseEntity<String> register(@RequestBody @Valid User user, BindingResult result) {
+        System.out.println("Prishel zapros s fronta");
         try {
-//            log.debug("POST request to register user {}", user);
+            log.debug("POST request to register user {}", user);
             System.err.println("Tuk Tuk");
             if (result.hasErrors()) {
-//                log.error("Validation Error");
+                log.error("Validation Error");
                 return new ResponseEntity<>("Validation Error", HttpStatus.BAD_REQUEST);
             }
             boolean isSaved = userService.saveUser(user);
             return isSaved ? new ResponseEntity<>("User registered successfully!", HttpStatus.OK) :
                     new ResponseEntity<>("User has already registered!", HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-//            log.error("Unexpected Error {}", e.getMessage());
+            log.error("Unexpected Error {}", e.getMessage());
             return new ResponseEntity<>("Unexpected Error", HttpStatus.BAD_REQUEST);
         }
     }
 
-    @PostMapping("/login")
+    @RequestMapping(value = "/login", method = {RequestMethod.OPTIONS, RequestMethod.POST})
     public ResponseEntity<String> login(@RequestBody @Valid User user, BindingResult bindingResult) {
+        System.out.println("Prishel zapros s fronta");
         try {
             log.debug("POST request to login user {}", user);
             if (bindingResult.hasErrors()) {
@@ -58,10 +61,10 @@ public class AuthController {
             LoginResponse loginResponse = new LoginResponse(userService.getUserToken(user), userId);
             return new ResponseEntity<>(gson.toJson(loginResponse), HttpStatus.OK);
         } catch (BadCredentialsException e) {
-//            log.error("Invalid user credentials {}", e.getMessage());
+            log.error("Invalid user credentials {}", e.getMessage());
             return new ResponseEntity<>("Неверные учетные данные пользователя", HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-//            log.error("Unexpected error {}", e.getMessage());
+            log.error("Unexpected error {}", e.getMessage());
             return new ResponseEntity<>("Непредвиденная ошибка", HttpStatus.BAD_REQUEST);
         }
     }
