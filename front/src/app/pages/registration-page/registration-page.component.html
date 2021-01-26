@@ -8,7 +8,8 @@
   <div class="registration-page__login-wrapper">
     <div class="registration-page__login-wrapper_input-wrapper">
           <span class="p-float-label">
-            <input class="registration-page__input" [(ngModel)]="username" id="float-input-username" type="text" pInputText />
+            <input class="registration-page__input" [(ngModel)]="username" id="float-input-username" type="text" pInputText
+              minlength="4"/>
             <label for="float-input" [ngStyle]="{fontSize: 'larger'}">Username</label>
           </span>
     </div>
@@ -16,7 +17,8 @@
   <div class="registration-page__login-wrapper">
     <div class="registration-page__login-wrapper_input-wrapper" [ngStyle]="{height: '70px'}">
           <span class="p-float-label">
-            <input class="registration-page__input" [(ngModel)]="password" id="float-input-password" type="password" pInputText />
+            <input class="registration-page__input" [(ngModel)]="password" id="float-input-password" type="password" pInputText
+              minlength="4"/>
             <label for="float-input" [ngStyle]="{fontSize: 'larger'}">Password</label>
           </span>
     </div>
