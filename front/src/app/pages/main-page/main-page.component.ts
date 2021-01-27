@@ -67,11 +67,13 @@ export class MainPageComponent implements OnInit {
   }
 
   public checkPoint(data: object): void {
-    this._checkPointService.checkPoints(data).subscribe((res: any) => res,
+    this._checkPointService.checkPoints(data).subscribe((res: any) => this.tablePoints = res,
       (err: HttpErrorResponse) => console.log(err),
     )
 
-    setTimeout(() => this.getUserPoints(), 100);
+    setTimeout(() => {
+      this.getUserPoints();
+    }, 100);
   }
 
   public getTablePoints(): any {
@@ -85,12 +87,13 @@ export class MainPageComponent implements OnInit {
     const data = {
       x: X,
       y: Y,
-      r: this.parameter
+      r: this.parameter,
+      username : this.loginName
     };
     this.checkPoint(data);
     // @ts-ignore
+    console.log("send point")
     setTimeout(() => {
-      console.log("send point")
       this.draw(this.parameter)}
     , 100);
   }
