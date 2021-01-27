@@ -16,7 +16,7 @@ public class Point {
     private double y;
     private double r;
     private String income;
-    private Integer userId;
+    private String userName;
 
 
     public Point() {}
@@ -26,12 +26,12 @@ public class Point {
         this.r = r;
         this.income = income;
     }
-    public Point(double x, double y, double r, String income, Integer userId) {
+    public Point(double x, double y, double r, String income, String userName) {
         this.x = x;
         this.y = y;
         this.r = r;
         this.income = income;
-        this.userId = userId;
+        this.userName = userName;
     }
 
     @Override
