@@ -1,5 +1,6 @@
 import { LoginService } from './login-page-service/login.service';
 import { Component, OnInit } from '@angular/core';
+import { saveUserName } from '../model/logic'
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { GetPointsService } from "../main-page/main-page-service/get-points.service";
@@ -22,8 +23,7 @@ export class LoginPageComponent implements OnInit {
 
   public auth(username: string, password: string): any {
     this.authorization({username, password});
-    localStorage.setItem('username', username);
-    this.cleanInputValue();
+
   }
 
   public authorization(obj: any): any {
@@ -31,9 +31,14 @@ export class LoginPageComponent implements OnInit {
       (res: any) => {
         this._tokenService.saveToken(res.token);
         this._tokenService.saveUser(res.id);
+        saveUserName(this.username);
+        this.cleanInputValue();
         this.getMainPage();
       },
-      (err: any) => this.error = err._body,
+      (err: any) => {
+        this.error = err._body;
+        this.cleanInputValue();
+      },
     );
   }
 
