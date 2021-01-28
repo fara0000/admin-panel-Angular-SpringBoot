@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { getUserName } from '../../model/logic';
 import { TokenService } from "../../../services/token-service.service";
@@ -11,14 +11,12 @@ import { TokenService } from "../../../services/token-service.service";
 export class GetPointsService {
   public name: any
   public username: any
-  constructor(private _http: Http, private _tokenService: TokenService) {
-
-  }
+  constructor(private _http: Http, private _tokenService: TokenService) {}
 
   public getPoints() {
     this.username = getUserName();
 
-    return this._http.get(`http://localhost:8080/getPoints/${this.username}`).pipe(
+    return this._http.get(`http://localhost:31440/lab4/getPoints/${this.username}`).pipe(
       map(res => res.json(),
         (err: any) => this.handleError(err)
       )

@@ -28,25 +28,9 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserPoints();
-    // @ts-ignore
     this.loginName = getUserName();
     setTimeout(() => {
       this.draw(this.parameter);
-      console.log("              _\n" +
-        "             | |\n" +
-        "             | |===( )   //////\n" +
-        "             |_|   |||  | o o|\n" +
-        "                    ||| ( c  )                  ____\n" +
-        "                     ||| \\= /                  ||   \\_\n" +
-        "                      ||||||                   ||     |\n" +
-        "                      ||||||                ...||__/|-\"\n" +
-        "                      ||||||             __|________|__\n" +
-        "                        |||             |______________|\n" +
-        "                        |||             || ||      || ||\n" +
-        "                        |||             || ||      || ||\n" +
-        "------------------------|||-------------||-||------||-||-------\n" +
-        "                        |__>            || ||      || ||\n" +
-        "\n");
     }, 100);
   }
 
@@ -71,7 +55,9 @@ export class MainPageComponent implements OnInit {
       (err: HttpErrorResponse) => console.log(err),
     )
 
-    setTimeout(() => this.getUserPoints(), 100);
+    setTimeout(() => {
+      this.getUserPoints();
+    }, 100);
   }
 
   public getTablePoints(): any {
@@ -85,12 +71,13 @@ export class MainPageComponent implements OnInit {
     const data = {
       x: X,
       y: Y,
-      r: this.parameter
+      r: this.parameter,
+      username : this.loginName
     };
     this.checkPoint(data);
     // @ts-ignore
+    console.log("send point")
     setTimeout(() => {
-      console.log("send point")
       this.draw(this.parameter)}
     , 100);
   }
@@ -105,7 +92,7 @@ export class MainPageComponent implements OnInit {
       // @ts-ignore
       const ctx = canvas.getContext('2d');
 
-      ctx.fillStyle = "rgba(256, 256, 256, 0.8)"; // background fill
+      ctx.fillStyle = "rgba(256, 256, 256)"; // background fill
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.fillStyle = 'rgb(35, 184, 253)'; //area
