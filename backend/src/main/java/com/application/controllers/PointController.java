@@ -61,5 +61,4 @@ public class PointController {
         pointRepository.deleteByUserName(userName);
     }
 
-
 }
