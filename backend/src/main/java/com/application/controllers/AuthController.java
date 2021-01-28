@@ -30,10 +30,8 @@ public class AuthController {
 
     @RequestMapping(value = "lab4/register", method = {RequestMethod.OPTIONS, RequestMethod.POST})
     public ResponseEntity<String> register(@RequestBody @Valid User user, BindingResult result) {
-        System.out.println("Prishel zapros s fronta");
         try {
             log.debug("POST request to register user {}", user);
-            System.err.println("Tuk Tuk");
             if (result.hasErrors()) {
                 log.error("Validation Error");
                 return new ResponseEntity<>("Validation Error", HttpStatus.BAD_REQUEST);
@@ -49,7 +47,6 @@ public class AuthController {
 
     @RequestMapping(value = "lab4/login", method = {RequestMethod.OPTIONS, RequestMethod.POST})
     public ResponseEntity<String> login(@RequestBody @Valid User user, BindingResult bindingResult) {
-        System.out.println("Prishel zapros s fronta");
         try {
             log.debug("POST request to login user {}", user);
             if (bindingResult.hasErrors()) {

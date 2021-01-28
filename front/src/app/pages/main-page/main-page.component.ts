@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import { HttpErrorResponse } from '@angular/common/http';
 import { CheckPointService } from './main-page-service/check-point.service';
-import {Router, RouterLink} from "@angular/router";
+import { Router } from "@angular/router";
+import { getUserName } from "../model/logic";
+
 import {TokenService} from "../../services/token-service.service";
 
 @Component({
@@ -14,7 +16,6 @@ import {TokenService} from "../../services/token-service.service";
 export class MainPageComponent implements OnInit {
   public parameter: number;
   private tablePoints: any;
-  public userId: number | null;
   public loginName: any;
 
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
@@ -23,30 +24,13 @@ export class MainPageComponent implements OnInit {
 
   constructor(private _tokenService: TokenService, private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
     this.parameter = 2;
-    this.userId = this._tokenService.getUser();
   }
 
   ngOnInit(): void {
     this.getUserPoints();
-    // @ts-ignore
-    this.loginName = localStorage.getItem('username');
+    this.loginName = getUserName();
     setTimeout(() => {
       this.draw(this.parameter);
-      console.log("              _\n" +
-        "             | |\n" +
-        "             | |===( )   //////\n" +
-        "             |_|   |||  | o o|\n" +
-        "                    ||| ( c  )                  ____\n" +
-        "                     ||| \\= /                  ||   \\_\n" +
-        "                      ||||||                   ||     |\n" +
-        "                      ||||||                ...||__/|-\"\n" +
-        "                      ||||||             __|________|__\n" +
-        "                        |||             |______________|\n" +
-        "                        |||             || ||      || ||\n" +
-        "                        |||             || ||      || ||\n" +
-        "------------------------|||-------------||-||------||-||-------\n" +
-        "                        |__>            || ||      || ||\n" +
-        "\n");
     }, 100);
   }
 
@@ -67,7 +51,7 @@ export class MainPageComponent implements OnInit {
   }
 
   public checkPoint(data: object): void {
-    this._checkPointService.checkPoints(data).subscribe((res: any) => this.tablePoints = res,
+    this._checkPointService.checkPoints(data).subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
 
