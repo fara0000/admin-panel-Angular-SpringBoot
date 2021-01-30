@@ -29,7 +29,7 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserPoints();
-    this.loginName = getUserName();
+    this.loginName = getUserName() ? getUserName() : this._tokenService.getUser();
     setTimeout(() => {
       this.draw(this.parameter);
     }, 100);
@@ -39,7 +39,6 @@ export class MainPageComponent implements OnInit {
     this._getPointService.getPoints().subscribe((res: any) => this.tablePoints = res,
       (err: HttpErrorResponse) => console.log(err),
     )
-    setTimeout(() => console.log(this.tablePoints, 'tbpoint'), 1000)
   }
 
   public getParameter() {
@@ -52,15 +51,13 @@ export class MainPageComponent implements OnInit {
   }
 
   public checkPoint(data: types.sendPoint): void {
-    const newObj = { ...data, username: this.loginName }
+    const sendData = { ...data, username: this.loginName }
 
-    this._checkPointService.checkPoints(newObj).subscribe((res: any) => res,
+    this._checkPointService.checkPoints(sendData).subscribe((res: any) => res,
     (err: HttpErrorResponse) => console.log(err),
     )
 
-    setTimeout(() => {
-      this.getUserPoints();
-    }, 100);
+    setTimeout(() => this.getUserPoints(), 100)
   }
 
   public deleteAllPoints() {
@@ -68,9 +65,7 @@ export class MainPageComponent implements OnInit {
       (err: HttpErrorResponse) => console.log(err),
     )
 
-    setTimeout(() => {
-      this.getUserPoints();
-    }, 100)
+    setTimeout(() => this.getUserPoints(), 100)
   }
 
   public getTablePoints(): any {
@@ -89,7 +84,6 @@ export class MainPageComponent implements OnInit {
     };
     this.checkPoint(data);
     // @ts-ignore
-    console.log("send point")
     setTimeout(() => {
       this.draw(this.parameter)}
     , 100);

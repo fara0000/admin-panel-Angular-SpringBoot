@@ -103,7 +103,7 @@ class LoginPageComponent {
     authorization(obj) {
         this._loginService.authUser(obj).subscribe((res) => {
             this._tokenService.saveToken(res.token);
-            this._tokenService.saveUser(res.id);
+            this._tokenService.saveUser(this.username);
             Object(_model_logic__WEBPACK_IMPORTED_MODULE_1__["saveUserName"])(this.username);
             this.cleanInputValue();
             this.getMainPage();
@@ -886,14 +886,13 @@ class MainPageComponent {
     }
     ngOnInit() {
         this.getUserPoints();
-        this.loginName = Object(_model_logic__WEBPACK_IMPORTED_MODULE_0__["getUserName"])();
+        this.loginName = Object(_model_logic__WEBPACK_IMPORTED_MODULE_0__["getUserName"])() ? Object(_model_logic__WEBPACK_IMPORTED_MODULE_0__["getUserName"])() : this._tokenService.getUser();
         setTimeout(() => {
             this.draw(this.parameter);
         }, 100);
     }
     getUserPoints() {
         this._getPointService.getPoints().subscribe((res) => this.tablePoints = res, (err) => console.log(err));
-        setTimeout(() => console.log(this.tablePoints, 'tbpoint'), 1000);
     }
     getParameter() {
         return this.parameter;
@@ -903,17 +902,13 @@ class MainPageComponent {
         this._tokenService.signOut();
     }
     checkPoint(data) {
-        const newObj = Object.assign(Object.assign({}, data), { username: this.loginName });
-        this._checkPointService.checkPoints(newObj).subscribe((res) => res, (err) => console.log(err));
-        setTimeout(() => {
-            this.getUserPoints();
-        }, 100);
+        const sendData = Object.assign(Object.assign({}, data), { username: this.loginName });
+        this._checkPointService.checkPoints(sendData).subscribe((res) => res, (err) => console.log(err));
+        setTimeout(() => this.getUserPoints(), 100);
     }
     deleteAllPoints() {
         this._dropAll.dropAllPoints().subscribe((res) => res, (err) => console.log(err));
-        setTimeout(() => {
-            this.getUserPoints();
-        }, 100);
+        setTimeout(() => this.getUserPoints(), 100);
     }
     getTablePoints() {
         return this.tablePoints;
@@ -930,7 +925,6 @@ class MainPageComponent {
         };
         this.checkPoint(data);
         // @ts-ignore
-        console.log("send point");
         setTimeout(() => {
             this.draw(this.parameter);
         }, 100);
@@ -1053,7 +1047,7 @@ class MainPageComponent {
     }
 }
 MainPageComponent.ɵfac = function MainPageComponent_Factory(t) { return new (t || MainPageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_main_page_service_delete_all_points_service__WEBPACK_IMPORTED_MODULE_3__["DeleteAllPointsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_token_service_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_main_page_service_get_points_service__WEBPACK_IMPORTED_MODULE_5__["GetPointsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_main_page_service_check_point_service__WEBPACK_IMPORTED_MODULE_6__["CheckPointService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"])); };
-MainPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: MainPageComponent, selectors: [["app-main-page"]], decls: 47, vars: 27, consts: [[1, "main-page__main-wrapper"], [1, "main-page__header"], [1, "header__logo", 3, "ngStyle"], [1, "header__sign-out-button"], ["pButton", "", "pRipple", "", "type", "button", "label", "sign out", 1, "p-button-raised", "p-button-text", "p-button-plain", 3, "click"], [3, "ngStyle"], [1, "main-page__body"], [1, "main-page__canvas-container"], ["width", "400px", "height", "400px", "id", "canvas", 3, "click"], [1, "main-page__form-container", 3, "ngSubmit"], ["pointForm", "ngForm"], [1, "p-panel-titlebar"], [1, "p-panel-title"], [1, "p-field", "p-col-12", "p-md-6"], ["name", "x", "ngModel", "", "mode", "decimal", "buttonLayout", "stacked", 3, "ngStyle", "showButtons", "min", "max", "step"], ["name", "y", "ngModel", "", "id", "y", "type", "text", "pInputText", "", "maxlength", "6", "value", "0", "pattern", "^-?\\d+[.,]?\\d*$", 3, "ngStyle"], ["name", "r", "ngModel", "", "ngModel", "", "mode", "decimal", "buttonLayout", "stacked", 1, "input__class", 3, "ngStyle", "showButtons", "ngModel", "min", "max", "step", "ngModelChange"], ["spy", ""], [1, "main-page__button-container", 3, "ngStyle"], ["pButton", "", "type", "submit", "label", "Send", 3, "ngStyle"], ["pButton", "", "type", "submit", "label", "Drop Table", 1, "p-button-danger", 3, "ngStyle", "click"], [1, "main-page__table"], [1, "main-page__table-header"], [1, "main-page__table-header-element"], ["class", "main-page__table-body-container", 4, "ngFor", "ngForOf"], [1, "main-page__table-body-container"], [1, "main-page__table-body-element"]], template: function MainPageComponent_Template(rf, ctx) { if (rf & 1) {
+MainPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: MainPageComponent, selectors: [["app-main-page"]], decls: 47, vars: 27, consts: [[1, "main-page__main-wrapper"], [1, "main-page__header"], [1, "header__logo", 3, "ngStyle"], [1, "header__sign-out-button"], ["pButton", "", "pRipple", "", "type", "button", "label", "sign out", 1, "p-button-raised", "p-button-text", "p-button-plain", 3, "click"], [3, "ngStyle"], [1, "main-page__body"], [1, "main-page__canvas-container"], ["width", "400px", "height", "400px", "id", "canvas", 3, "click"], [1, "main-page__form-container", 3, "ngSubmit"], ["pointForm", "ngForm"], [1, "p-panel-titlebar"], [1, "p-panel-title"], [1, "p-field", "p-col-12", "p-md-6"], ["name", "x", "ngModel", "", "mode", "decimal", "buttonLayout", "stacked", 3, "ngStyle", "showButtons", "min", "max", "step"], ["name", "y", "ngModel", "", "id", "y", "type", "text", "pInputText", "", "maxlength", "6", "value", "0", "pattern", "^-?\\d+[.,]?\\d*$", 3, "ngStyle"], ["name", "r", "ngModel", "", "ngModel", "", "mode", "decimal", "buttonLayout", "stacked", 1, "input__class", 3, "ngStyle", "showButtons", "ngModel", "min", "max", "step", "ngModelChange"], ["spy", ""], [1, "main-page__button-container", 3, "ngStyle"], ["pButton", "", "type", "submit", "label", "Send", 3, "ngStyle"], ["pButton", "", "type", "button", "label", "Drop Table", 1, "p-button-danger", 3, "ngStyle", "click"], [1, "main-page__table"], [1, "main-page__table-header"], [1, "main-page__table-header-element"], ["class", "main-page__table-body-container", 4, "ngFor", "ngForOf"], [1, "main-page__table-body-container"], [1, "main-page__table-body-element"]], template: function MainPageComponent_Template(rf, ctx) { if (rf & 1) {
         const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "header", 1);
@@ -1197,7 +1191,7 @@ class GetPointsService {
         this._tokenService = _tokenService;
     }
     getPoints() {
-        this.username = Object(_model_logic__WEBPACK_IMPORTED_MODULE_3__["getUserName"])();
+        this.username = Object(_model_logic__WEBPACK_IMPORTED_MODULE_3__["getUserName"])() ? Object(_model_logic__WEBPACK_IMPORTED_MODULE_3__["getUserName"])() : this._tokenService.getUser();
         return this._http.get(`http://localhost:31440/lab4/getPoints/${this.username}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res.json(), (err) => this.handleError(err)));
     }
     ;

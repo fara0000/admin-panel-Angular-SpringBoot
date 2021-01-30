@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
     this._loginService.authUser(obj).subscribe(
       (res: any) => {
         this._tokenService.saveToken(res.token);
-        this._tokenService.saveUser(res.id);
+        this._tokenService.saveUser(this.username);
         saveUserName(this.username);
         this.cleanInputValue();
         this.getMainPage();
