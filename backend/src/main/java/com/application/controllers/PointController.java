@@ -5,6 +5,7 @@ import com.application.repositories.PointRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
@@ -48,17 +49,22 @@ public class PointController {
             }
         }
         if (correct) pointRepository.save(new Point(x, y, r, income, userName));
+        log.info("check points by " + userName + " " + new Point(x, y, r, income, userName));
         return pointRepository.findByUserName(userName);
     }
 
     @GetMapping("/lab4/getPoints/{userName}")
     public List<Point> test (@PathVariable String userName) {
+        log.info("return points by " + userName);
         return pointRepository.findByUserName(userName);
     }
 
+    @Transactional
     @GetMapping("/lab4/dropTable/{userName}")
     public void dropTable (@PathVariable String userName) {
+        log.info("delete points by " + userName);
         pointRepository.deleteByUserName(userName);
+        pointRepository.flush();
     }
 
 
