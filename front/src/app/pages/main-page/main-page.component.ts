@@ -72,7 +72,7 @@ export class MainPageComponent implements OnInit {
       x: X,
       y: Y,
       r: this.parameter,
-      username : this.loginName
+      userName : this.loginName
     };
     this.checkPoint(data);
     // @ts-ignore
