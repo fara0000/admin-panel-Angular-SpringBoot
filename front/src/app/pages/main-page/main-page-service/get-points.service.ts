@@ -14,7 +14,7 @@ export class GetPointsService {
   constructor(private _http: Http, private _tokenService: TokenService) {}
 
   public getPoints() {
-    this.username = getUserName();
+    this.username = getUserName() ? getUserName() : this._tokenService.getUser();
 
     return this._http.get(`http://localhost:31440/lab4/getPoints/${this.username}`).pipe(
       map(res => res.json(),

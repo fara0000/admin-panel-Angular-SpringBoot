@@ -20,12 +20,7 @@ public class Point {
 
 
     public Point() {}
-    public Point(double x, double y, double r, String income) {
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        this.income = income;
-    }
+
     public Point(double x, double y, double r, String income, String userName) {
         this.x = x;
         this.y = y;

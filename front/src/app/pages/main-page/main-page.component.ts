@@ -1,12 +1,13 @@
-import { GetPointsService } from './main-page-service/get-points.service';
-import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
-import { HttpErrorResponse } from '@angular/common/http';
-import { CheckPointService } from './main-page-service/check-point.service';
 import { Router } from "@angular/router";
 import { getUserName } from "../model/logic";
-
-import {TokenService} from "../../services/token-service.service";
+import { TokenService } from "../../services/token-service.service";
+import { GetPointsService } from './main-page-service/get-points.service';
+import { Component, OnInit } from '@angular/core';
+import * as types from './types/types';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CheckPointService } from './main-page-service/check-point.service';
+import { DeleteAllPointsService } from "./main-page-service/delete-all-points.service";
+import { FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-main-page',
@@ -22,13 +23,13 @@ export class MainPageComponent implements OnInit {
   private x: any;
 
 
-  constructor(private _tokenService: TokenService, private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
+  constructor(private _dropAll: DeleteAllPointsService, private _tokenService: TokenService, private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
     this.parameter = 2;
   }
 
   ngOnInit(): void {
     this.getUserPoints();
-    this.loginName = getUserName();
+    this.loginName = getUserName() ? getUserName() : this._tokenService.getUser();
     setTimeout(() => {
       this.draw(this.parameter);
     }, 100);
@@ -38,7 +39,6 @@ export class MainPageComponent implements OnInit {
     this._getPointService.getPoints().subscribe((res: any) => this.tablePoints = res,
       (err: HttpErrorResponse) => console.log(err),
     )
-    setTimeout(() => console.log(this.tablePoints, 'tbpoint'), 1000)
   }
 
   public getParameter() {
@@ -50,14 +50,22 @@ export class MainPageComponent implements OnInit {
     this._tokenService.signOut();
   }
 
-  public checkPoint(data: object): void {
-    this._checkPointService.checkPoints(data).subscribe((res: any) => res,
+  public checkPoint(data: types.sendPoint): void {
+    const sendData = { ...data, username: this.loginName }
+
+    this._checkPointService.checkPoints(sendData).subscribe((res: any) => res,
+    (err: HttpErrorResponse) => console.log(err),
+    )
+
+    setTimeout(() => this.getUserPoints(), 100)
+  }
+
+  public deleteAllPoints() {
+    this._dropAll.dropAllPoints().subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
 
-    setTimeout(() => {
-      this.getUserPoints();
-    }, 100);
+    setTimeout(() => this.getUserPoints(), 100)
   }
 
   public getTablePoints(): any {
@@ -76,7 +84,6 @@ export class MainPageComponent implements OnInit {
     };
     this.checkPoint(data);
     // @ts-ignore
-    console.log("send point")
     setTimeout(() => {
       this.draw(this.parameter)}
     , 100);

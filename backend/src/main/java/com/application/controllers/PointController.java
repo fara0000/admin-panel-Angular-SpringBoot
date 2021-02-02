@@ -67,5 +67,4 @@ public class PointController {
         pointRepository.flush();
     }
 
-
 }
