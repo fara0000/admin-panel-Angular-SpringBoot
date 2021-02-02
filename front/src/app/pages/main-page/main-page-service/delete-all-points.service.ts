@@ -18,7 +18,7 @@ export class DeleteAllPointsService {
   public dropAllPoints() {
     this.username = getUserName();
 
-    return this._http.delete(`http://localhost:31440//lab4/dropTable/${this.username}`).pipe(
+    return this._http.delete(`http://localhost:31440/lab4/dropTable/${this.username}`).pipe(
       map(res => res,
         (error: any) => this.handleError(error)
       )

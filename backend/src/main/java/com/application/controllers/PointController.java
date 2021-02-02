@@ -60,7 +60,7 @@ public class PointController {
     }
 
     @Transactional
-    @GetMapping("/lab4/dropTable/{userName}")
+    @DeleteMapping("/lab4/dropTable/{userName}")
     public void dropTable (@PathVariable String userName) {
         log.info("delete points by " + userName);
         pointRepository.deleteByUserName(userName);
