@@ -56,16 +56,17 @@ export class MainPageComponent implements OnInit {
     this._checkPointService.checkPoints(sendData).subscribe((res: any) => res,
     (err: HttpErrorResponse) => console.log(err),
     )
-
     setTimeout(() => this.getUserPoints(), 100)
+    setTimeout(() => {this.draw(this.parameter)}, 200);
   }
 
   public deleteAllPoints() {
     this._dropAll.dropAllPoints().subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
-
-    setTimeout(() => this.getUserPoints(), 100)
+    // setTimeout(() => this.getUserPoints(), 100)
+    this.tablePoints = [];
+    setTimeout(() => {this.draw(this.parameter)}, 100);
   }
 
   public getTablePoints(): any {
@@ -83,14 +84,12 @@ export class MainPageComponent implements OnInit {
       username : this.loginName
     };
     this.checkPoint(data);
-    // @ts-ignore
-    setTimeout(() => {
-      this.draw(this.parameter)}
-    , 100);
+    setTimeout(() => {this.draw(this.parameter)}, 200);
   }
 
   // tslint:disable-next-line:typedef
   draw(parameter: any = 0) {
+    console.log("canvas drawing was called");
     const CANVAS_WIDTH = 400;
     const CANVAS_HEIGHT = 400;
     const canvas = document.getElementById('canvas');
