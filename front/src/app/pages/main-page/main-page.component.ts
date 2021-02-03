@@ -66,7 +66,10 @@ export class MainPageComponent implements OnInit {
     )
     // setTimeout(() => this.getUserPoints(), 100)
     this.tablePoints = [];
-    setTimeout(() => {this.draw(this.parameter)}, 100);
+    setTimeout(() => {
+      this.draw(this.parameter);
+      this.draw(this.parameter);
+    }, 100);
   }
 
   public getTablePoints(): any {
