@@ -84,12 +84,10 @@ export class MainPageComponent implements OnInit {
       username : this.loginName
     };
     this.checkPoint(data);
-    setTimeout(() => {this.draw(this.parameter)}, 200);
   }
 
   // tslint:disable-next-line:typedef
   draw(parameter: any = 0) {
-    console.log("canvas drawing was called");
     const CANVAS_WIDTH = 400;
     const CANVAS_HEIGHT = 400;
     const canvas = document.getElementById('canvas');
@@ -97,6 +95,7 @@ export class MainPageComponent implements OnInit {
     if (canvas.getContext){
       // @ts-ignore
       const ctx = canvas.getContext('2d');
+      ctx.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.fillStyle = "rgba(256, 256, 256)"; // background fill
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
