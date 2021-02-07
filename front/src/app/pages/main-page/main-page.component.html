@@ -26,14 +26,14 @@
         </div>
         <div class="p-field p-col-12 p-md-6">
           Y:
-          <input name="y" ngModel [ngStyle]="{width: '85%'}" id="y" type="text" pInputText maxlength="6" [(ngModel)]="yPoint" pattern=^-?\d+[.,]?\d*$/>
+          <input name="y" ngModel [ngStyle]="{width: '85%'}" id="y" type="text" pInputText maxlength="6" [(ngModel)]="yPoint" [formControl]="rateControl" pattern=^-?\d+[.,]?\d*$/>
         </div>
         <div class="p-field p-col-12 p-md-6">
           R:
           <p-inputNumber name="r" ngModel [ngStyle]="{width: '94%'}" #spy mode="decimal" [showButtons]="true"  (ngModelChange)="draw(spy.value)" [(ngModel)]="parameter" buttonLayout="stacked" [min]="-2" [max]="2" [step]="0.5" class="input__class"></p-inputNumber>
         </div>
         <div class="main-page__button-container" [ngStyle]="{display: 'flex', justifyContent: 'center'}">
-          <button pButton type="submit" label="Send" [ngStyle]="{width: '105px'}"></button>
+          <button pButton type="submit" label="Send" [ngStyle]="{width: '105px'}" [disabled]="!rateControl.valid"></button>
           <button pButton type="button" label="Drop Table" [ngStyle]="{width: '113px'}" class="p-button-danger" (click)="deleteAllPoints()"></button>
         </div>
       </form>

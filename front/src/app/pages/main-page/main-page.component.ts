@@ -55,7 +55,7 @@ export class MainPageComponent implements OnInit {
   }
 
   public checkPoint(data: types.sendPoint): void {
-    const sendData = { ...data, username: this.loginName }
+    const sendData = { ...data, y: this.yPoint, username: this.loginName }
 
     this._checkPointService.checkPoints(sendData).subscribe((res: any) => res,
     (err: HttpErrorResponse) => console.log(err),
