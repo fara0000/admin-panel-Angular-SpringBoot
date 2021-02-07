@@ -9,7 +9,6 @@ import { TokenService } from "../../../services/token-service.service";
   providedIn: 'root'
 })
 export class GetPointsService {
-  public name: any
   public username: any
   constructor(private _http: Http, private _tokenService: TokenService) {}
 

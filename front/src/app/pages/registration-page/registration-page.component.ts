@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RegistrationService } from './registration-page-service/registration.service';
+import {LoginService} from "../login-page/login-page-service/login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration-page',
@@ -12,7 +14,7 @@ export class RegistrationPageComponent implements OnInit {
   username: any;
   password: any;
 
-  constructor(private _service: RegistrationService) { }
+  constructor(private _service: RegistrationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,9 +26,16 @@ export class RegistrationPageComponent implements OnInit {
 
   public sendNewUser(obj: any): any {
     this._service.addNewUser(obj).subscribe(
-      (res: any) => res,
-      (err: any) => this.error = err._body,
+      (res: any) => {
+        console.log(res, 'res');
+        this.getLoginPage();
+      },
+          (err: any) => this.error = err._body,
     );
+  }
+
+  public getLoginPage() {
+    setTimeout(() => this.router.navigate(["/lab4/login"]), 1000);
   }
 
   public cleanInputValue(): void {

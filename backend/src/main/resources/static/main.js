@@ -905,10 +905,16 @@ class MainPageComponent {
         const sendData = Object.assign(Object.assign({}, data), { username: this.loginName });
         this._checkPointService.checkPoints(sendData).subscribe((res) => res, (err) => console.log(err));
         setTimeout(() => this.getUserPoints(), 100);
+        setTimeout(() => { this.draw(this.parameter); }, 200);
     }
     deleteAllPoints() {
         this._dropAll.dropAllPoints().subscribe((res) => res, (err) => console.log(err));
-        setTimeout(() => this.getUserPoints(), 100);
+        // setTimeout(() => this.getUserPoints(), 100)
+        this.tablePoints = [];
+        setTimeout(() => {
+            this.draw(this.parameter);
+            this.draw(this.parameter);
+        }, 100);
     }
     getTablePoints() {
         return this.tablePoints;
@@ -924,10 +930,6 @@ class MainPageComponent {
             username: this.loginName
         };
         this.checkPoint(data);
-        // @ts-ignore
-        setTimeout(() => {
-            this.draw(this.parameter);
-        }, 100);
     }
     // tslint:disable-next-line:typedef
     draw(parameter = 0) {
@@ -938,6 +940,7 @@ class MainPageComponent {
         if (canvas.getContext) {
             // @ts-ignore
             const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             ctx.fillStyle = "rgba(256, 256, 256)"; // background fill
             ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             ctx.fillStyle = 'rgb(35, 184, 253)'; //area
@@ -1300,6 +1303,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "qCKp");
 /* harmony import */ var _model_logic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../model/logic */ "Ivn6");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "qlzE");
+/* harmony import */ var _services_token_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/token-service.service */ "aRc7");
+
 
 
 
@@ -1307,27 +1312,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class DeleteAllPointsService {
-    constructor(_http) {
+    constructor(_http, _tokenService) {
         this._http = _http;
-        this.username = '';
+        this._tokenService = _tokenService;
     }
     dropAllPoints() {
-        this.username = Object(_model_logic__WEBPACK_IMPORTED_MODULE_3__["getUserName"])();
-        return this._http.delete(`http://localhost:31440//lab4/dropTable/${this.username}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res, (error) => this.handleError(error)));
+        this.username = Object(_model_logic__WEBPACK_IMPORTED_MODULE_3__["getUserName"])() ? Object(_model_logic__WEBPACK_IMPORTED_MODULE_3__["getUserName"])() : this._tokenService.getUser();
+        return this._http.delete(`http://localhost:31440/lab4/dropTable/${this.username}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(res => res, (error) => this.handleError(error)));
     }
     ;
     handleError(err) {
         return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(err || 'ERROR 500');
     }
 }
-DeleteAllPointsService.ɵfac = function DeleteAllPointsService_Factory(t) { return new (t || DeleteAllPointsService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"])); };
+DeleteAllPointsService.ɵfac = function DeleteAllPointsService_Factory(t) { return new (t || DeleteAllPointsService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_services_token_service_service__WEBPACK_IMPORTED_MODULE_5__["TokenService"])); };
 DeleteAllPointsService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: DeleteAllPointsService, factory: DeleteAllPointsService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](DeleteAllPointsService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"] }]; }, null); })();
+    }], function () { return [{ type: _angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"] }, { type: _services_token_service_service__WEBPACK_IMPORTED_MODULE_5__["TokenService"] }]; }, null); })();
 
 
 /***/ }),

@@ -9,14 +9,12 @@ import { Http, Response } from '@angular/http';
   providedIn: 'root'
 })
 export class DeleteAllPointsService {
-  private username: string;
+  private username: any;
 
-  constructor(private _http: Http) {
-    this.username = '';
-  }
+  constructor(private _http: Http, private _tokenService: TokenService) {}
 
   public dropAllPoints() {
-    this.username = getUserName();
+    this.username = getUserName() ? getUserName() : this._tokenService.getUser();
 
     return this._http.delete(`http://localhost:31440/lab4/dropTable/${this.username}`).pipe(
       map(res => res,
