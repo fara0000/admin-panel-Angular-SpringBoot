@@ -20,10 +20,7 @@ export class MainPageComponent implements OnInit {
   public loginName: any;
   public xPoint: number;
   public yPoint: number;
-
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
-  private x: any;
-
 
   constructor(private _dropAll: DeleteAllPointsService, private _tokenService: TokenService, private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
     this.parameter = 2;
@@ -45,9 +42,7 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  public getParameter() {
-    return this.parameter
-  }
+  public getParameter() { return this.parameter }
 
   public logout() {
     this._router.navigate(["/lab4/login"]);
@@ -55,7 +50,11 @@ export class MainPageComponent implements OnInit {
   }
 
   public checkPoint(data: types.sendPoint): void {
-    const sendData = { ...data, y: this.yPoint, username: this.loginName }
+    let variableY;
+    // @ts-ignore
+    if (typeof data.y == "undefined") variableY = this.yPoint;
+    else variableY = data.y;
+    const sendData = { x: data.x, y: variableY, r: data.r, userName: this.loginName }
 
     this._checkPointService.checkPoints(sendData).subscribe((res: any) => res,
     (err: HttpErrorResponse) => console.log(err),
@@ -68,7 +67,6 @@ export class MainPageComponent implements OnInit {
     this._dropAll.dropAllPoints().subscribe((res: any) => res,
       (err: HttpErrorResponse) => console.log(err),
     )
-    // setTimeout(() => this.getUserPoints(), 100)
     this.tablePoints = [];
     setTimeout(() => {
       this.draw(this.parameter);
@@ -76,24 +74,19 @@ export class MainPageComponent implements OnInit {
     }, 100);
   }
 
-  public getTablePoints(): any {
-    return this.tablePoints;
-  }
+  public getTablePoints(): any { return this.tablePoints }
 
   public sendPoint(event: any){
     const X = (event.offsetX - 200) / 80;
     const Y = (event.offsetY - 200) / -80;
-    // @ts-ignore
     const data = {
       x: X,
       y: Y,
-      r: this.parameter,
-      username : this.loginName
+      r: this.parameter
     };
     this.checkPoint(data);
   }
 
-  // tslint:disable-next-line:typedef
   draw(parameter: any = 0) {
     const CANVAS_WIDTH = 400;
     const CANVAS_HEIGHT = 400;
@@ -108,7 +101,7 @@ export class MainPageComponent implements OnInit {
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.fillStyle = 'rgb(35, 184, 253)'; //area
-      ctx.fillRect(200, 200, parameter * 40, parameter * 80); //rectangle
+      ctx.fillRect(200, 200, parameter * 40, parameter * 80); // rectangle
       ctx.fill();
 
       ctx.beginPath();
@@ -137,15 +130,14 @@ export class MainPageComponent implements OnInit {
       ctx.strokeStyle = "#333";
       ctx.stroke();
 
-
-      ctx.fillStyle = 'black'; //axis
+      ctx.fillStyle = 'black'; // axis
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(0,200);
       ctx.lineTo(400,200);
       ctx.moveTo(200,0);
       ctx.lineTo(200,400);
-      ctx.moveTo(194,20); //arrows at the ends of lines
+      ctx.moveTo(194,20); // arrows at the ends of axis
       ctx.lineTo(200,0);
       ctx.lineTo(206,20);
       ctx.moveTo(380,194);
@@ -154,17 +146,17 @@ export class MainPageComponent implements OnInit {
       ctx.stroke();
       ctx.fill();
 
-      ctx.font = "18px Arial";
+      ctx.font = "18px Arial"; // names of axis & coordinates
       ctx.fillText("X", 385, 188);
       ctx.fillText("Y", 208, 18);
       ctx.fillText("0", 202, 198);
-      if (Math.abs(parameter) >= 1){
+      if (Math.abs(parameter) >= 1) { // drawing coordinates of r more or equals to them
         ctx.fillText("1", 282, 198);
         ctx.fillText("1", 202, 116);
         ctx.fillText("-1", 122, 198);
         ctx.fillText("-1", 202, 276);
       }
-      if (Math.abs(parameter) >= 2){
+      if (Math.abs(parameter) >= 2) {
         ctx.fillText("2", 362, 198);
         ctx.fillText("2", 202, 38);
         ctx.fillText("-2", 42, 198);
@@ -172,7 +164,7 @@ export class MainPageComponent implements OnInit {
       }
       ctx.closePath();
 
-      this.getTablePoints().forEach((element: any) => {
+      this.getTablePoints().forEach((element: any) => { // drawing dots
         let x = element.x;
         let y = element.y;
         let result = this.check(x, y, parameter);
@@ -188,25 +180,19 @@ export class MainPageComponent implements OnInit {
 
   check(x: number, y: number, r: number) : string {
     let income = "false";
-    if (r >= 0) {
+    if (r >= 0) { // checking for positive parameter
       if (y > 0){
-        if ((y <= 2 * x + r) && (x <= 0)) income = "true"; //triangle
+        if ((y <= 2 * x + r) && (x <= 0)) income = "true"; // triangle
       } else {
-        if (x >= 0){
-          if ((x <= r/2) && (y >= -r)) income = "true"; // rectangle
-        }
-        if (x < 0){
-          if (x * x + y * y <= r * r / 4)income = "true"; //circle
-        }
+        if ((x >= 0) && (x <= r/2) && (y >= -r)) income = "true"; // rectangle
+        if ((x < 0) && (x * x + y * y <= r * r / 4)) income = "true"; // circle
       }
-    } else {
+    } else { // checking for negative parameter
       if (y >= 0){
-        if (x > 0){
-          if (x * x + y * y <= r * r / 4)income = "true"; //circle
-        }
-        else if ((x >= r/2) && (y <= Math.abs(r))) income = "true" // reactangle
-
-      } else if ((y >= 2 * x + r) && (x >= 0)) income = "true"; //triangle
+        if ((x > 0) && (x * x + y * y <= r * r / 4)) income = "true"; // circle
+        if ((x <= 0) && (x >= r/2) && (y <= Math.abs(r))) income = "true" // rectangle
+      }
+      else if ((y >= 2 * x + r) && (x >= 0)) income = "true"; // triangle
     }
     return income;
   }

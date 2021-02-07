@@ -25,8 +25,8 @@ public class PointController {
         double r = Double.parseDouble(request.get("r"));
         String userName = "";
         boolean correct = true;
-        if (request.get("username") == null) {log.error("In request userName wasn't set"); correct = false;}
-        else userName = request.get("username");
+        if (request.get("userName") == null) {log.error("In request userName wasn't set"); correct = false;}
+        else userName = request.get("userName");
         if (Math.abs(x) >= 2.5) {log.error("Wrong value of X while checking request by " + userName); correct = false;}
         if (Math.abs(y) >= 2.5) {log.error("Wrong value of Y while checking request by " + userName); correct = false;}
         if (Math.abs(r) > 2) {log.error("Wrong value of R while checking request by " + userName); correct = false;}
