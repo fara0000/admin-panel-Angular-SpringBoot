@@ -19,17 +19,17 @@ public class PointController {
     }
 
     @PostMapping("/lab4/checkPoint")
-    public Iterable<Point> check(@RequestBody Map<String, String> request){
+    public void check(@RequestBody Map<String, String> request){
         double x = Double.parseDouble(request.get("x"));
         double y = Double.parseDouble(request.get("y").replace(",", "."));
         double r = Double.parseDouble(request.get("r"));
         String userName = "";
         boolean correct = true;
-        if (request.get("username") == null) {log.error("userName isn't set"); /*correct = false;*/}
+        if (request.get("username") == null) {log.error("In request userName wasn't set"); correct = false;}
         else userName = request.get("username");
-        if (Math.abs(x) >= 2.5) {log.error("Wrong value of X"); correct = false;}
-        if (Math.abs(y) >= 2.5) {log.error("Wrong value of Y"); correct = false;}
-        if (Math.abs(r) > 2) {log.error("Wrong value of R"); correct = false;}
+        if (Math.abs(x) >= 2.5) {log.error("Wrong value of X while checking request by " + userName); correct = false;}
+        if (Math.abs(y) >= 2.5) {log.error("Wrong value of Y while checking request by " + userName); correct = false;}
+        if (Math.abs(r) > 2) {log.error("Wrong value of R while checking request by " + userName); correct = false;}
         String income = "false";
         if (y > 0){
             if ((y <= 2 * x + r) && (x <= 0)) income = "true";
@@ -48,21 +48,22 @@ public class PointController {
                 break;
             }
         }
-        if (correct) pointRepository.save(new Point(x, y, r, income, userName));
-        log.info("check points by " + userName + " " + new Point(x, y, r, income, userName));
-        return pointRepository.findByUserName(userName);
+        if (correct) {
+            pointRepository.save(new Point(x, y, r, income, userName));
+            log.info("Checked {}'s {}", userName, new Point(x, y, r, income, userName));
+        }
     }
 
     @GetMapping("/lab4/getPoints/{userName}")
     public List<Point> test (@PathVariable String userName) {
-        log.info("return points by " + userName);
+        log.info("Return {}'s points", userName);
         return pointRepository.findByUserName(userName);
     }
 
     @Transactional
     @DeleteMapping("/lab4/dropTable/{userName}")
     public void dropTable (@PathVariable String userName) {
-        log.info("delete points by " + userName);
+        log.info("Delete {}'s points", userName);
         pointRepository.deleteByUserName(userName);
         pointRepository.flush();
     }

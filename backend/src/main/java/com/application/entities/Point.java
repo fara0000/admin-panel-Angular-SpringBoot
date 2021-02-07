@@ -31,7 +31,7 @@ public class Point {
 
     @Override
     public String toString(){
-        return "Point{" + "x=" + x + ", y=" + y + ", r=" + r + "}";
+        return "point{" + "x = " + x + ", y = " + y + ", r = " + r + "}";
     }
 
 }
