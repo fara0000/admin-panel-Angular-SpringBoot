@@ -18,6 +18,8 @@ export class MainPageComponent implements OnInit {
   public parameter: number;
   private tablePoints: any;
   public loginName: any;
+  public xPoint: number;
+  public yPoint: number;
 
   rateControl = new FormControl('', [Validators.max(3), Validators.min(-3)])
   private x: any;
@@ -25,6 +27,8 @@ export class MainPageComponent implements OnInit {
 
   constructor(private _dropAll: DeleteAllPointsService, private _tokenService: TokenService, private _getPointService: GetPointsService, private _checkPointService: CheckPointService, private _router: Router) {
     this.parameter = 2;
+    this.xPoint = 0;
+    this.yPoint = 0;
   }
 
   ngOnInit(): void {
