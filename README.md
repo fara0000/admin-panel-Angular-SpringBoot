@@ -1,4 +1,12 @@
 # Lab4_WEB
+USED in this project:
+
+
+1. Front - Angular js
+2. Backend - Spring boot + PostgreSQL 
+3. CORS + Spring Security
+4. UI kit - PrimeNG
+
 Переписать приложение из предыдущей лабораторной работы с использованием следующих технологий:
 
 * Уровень back-end должен быть основан на Spring.
