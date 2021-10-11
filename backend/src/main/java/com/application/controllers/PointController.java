@@ -1,6 +1,8 @@
 package com.application.controllers;
 
 import com.application.entities.Point;
+import com.application.mbeans.IntervalMBean;
+import com.application.mbeans.PointCounterMBean;
 import com.application.repositories.PointRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +15,13 @@ import java.util.Map;
 @Slf4j
 public class PointController {
     private final PointRepository pointRepository;
+    private PointCounterMBean pointCounterMBean;
+    private IntervalMBean intervalMBean;
 
-    public PointController(PointRepository pointRepository) {
+    public PointController(PointRepository pointRepository, PointCounterMBean pointCounterMBean, IntervalMBean intervalMBean) {
         this.pointRepository = pointRepository;
+        this.pointCounterMBean = pointCounterMBean;
+        this.intervalMBean = intervalMBean;
     }
 
     @PostMapping("/lab4/checkPoint")
@@ -51,6 +57,8 @@ public class PointController {
         if (correct) {
             pointRepository.save(new Point(x, y, r, income, userName));
             log.info("Checked {}'s {}", userName, new Point(x, y, r, income, userName));
+            intervalMBean.click();
+            pointCounterMBean.count(Boolean.parseBoolean(income));
         }
     }
 
